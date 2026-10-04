@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Leira — Gestiona tus fincas y propiedades</title>
+  <meta name="description" content="Gestiona tus fincas y propiedades, consulta el Catastro, controla gastos y organiza toda tu información desde una sola aplicación.">
+  <meta name="theme-color" content="#071014">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Open Graph / redes sociales (URLs absolutas: las redes no aceptan rutas relativas). Si la web
+       cambia de dominio, actualizar og:url, og:image y el canonical. -->
+  <link rel="canonical" href="https://asvdesarrolloweb-cmd.github.io/leira-web/">
+  <meta property="og:url" content="https://asvdesarrolloweb-cmd.github.io/leira-web/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Leira">
+  <meta property="og:title" content="Leira — Gestiona tus fincas y propiedades">
+  <meta property="og:description" content="Localiza tus propiedades, consulta el Catastro, controla gastos y documentos y ten toda la información de tus fincas en un solo lugar.">
+  <meta property="og:image" content="https://asvdesarrolloweb-cmd.github.io/leira-web/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo de Leira con el lema «Gestiona tus fincas. Sin complicaciones.»">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Iconos: los mismos Material Icons que usa la app, solo los que aparecen en la página. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,400..600,0..1,0&icon_names=account_balance_wallet,add,arrow_downward,arrow_forward,bar_chart,block,check,close,cloud_done,cloud_off,crop_free,description,directions,document_scanner,download,eco,expand_more,grass,handyman,home_work,landscape,layers,list,location_on,map,menu,my_location,partly_cloudy_day,photo_camera,picture_as_pdf,receipt_long,satellite_alt,share,sync,terrain,touch_app,trending_down,trending_up,warning,water_drop,wifi_off,workspace_premium&display=block">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <!-- ====================================================== NAVEGACIÓN -->
+  <header class="nav" data-nav>
+    <div class="nav-inner wrap">
+      <a class="brand" href="#top" aria-label="Leira, inicio">
+        <img src="assets/logo.png" srcset="assets/logo@2x.png 2x" width="25" height="32" alt="">
+        <span>Leira</span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Principal">
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#catastro">Catastro</a>
+        <a href="#premium">Premium</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-sm btn-primary" href="#descargar">Descargar</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú" data-nav-toggle>
+        <span class="ms" aria-hidden="true">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ====================================================== HERO -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><img src="assets/logo.png" width="14" height="18" alt=""> Leira para Android</p>
+          <h1>Gestiona tus fincas.<br><span class="accent">Sin complicaciones.</span></h1>
+          <p class="lead">Localiza tus propiedades, consulta el Catastro, controla gastos y documentos y ten toda la información de tus fincas en un solo lugar.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-lg" data-play href="#descargar">
+              <span class="ms" aria-hidden="true">download</span>
+              <span data-play-label>Próximamente en Google Play</span>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#funcionalidades">
+              Descubrir Leira <span class="ms" aria-hidden="true">arrow_downward</span>
+            </a>
+          </div>
+          <ul class="hero-points" aria-label="Lo esencial">
+            <li><span class="ms" aria-hidden="true">check</span>Fincas, viviendas y terrenos</li>
+            <li><span class="ms" aria-hidden="true">check</span>Datos oficiales del Catastro</li>
+            <li><span class="ms" aria-hidden="true">check</span>Funciona sin cobertura</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Vista de la app: mapa con una finca guardada en verde y una parcela del Catastro seleccionada" role="img">
+          <div class="phone tilt">
+            <div class="screen">
+              <div class="app-bar"><span>Mapa</span><span class="app-avatar"><span class="ms" aria-hidden="true">grass</span></span></div>
+              <div class="map" data-map data-layer="sat" data-cad="on">
+                <div class="m-pill m-layers"><span class="on">Satélite</span><span>Mapa</span></div>
+                <div class="m-pill m-cad-toggle"><span class="ms crown" aria-hidden="true">workspace_premium</span>Catastro<i class="switch on"></i></div>
+                <div class="m-callout">
+                  <strong>Parcela catastral</strong>
+                  <small>Superficie: 37.102 m²</small>
+                  <span class="m-add"><span class="ms" aria-hidden="true">add</span>Añadir a mis fincas</span>
+                </div>
+              </div>
+              <div class="tab-bar"><span class="on"><span class="ms" aria-hidden="true">map</span>Mapa</span><span><span class="ms" aria-hidden="true">list</span>Mis fincas</span></div>
+            </div>
+          </div>
+          <div class="float-card fc-balance float-a" aria-hidden="true">
+            <small>Balance</small>
+            <strong class="pos">+3.069,50 €</strong>
+            <span class="fc-row"><i class="dot up"></i>Ingresos 4.250,00 €</span>
+            <span class="fc-row"><i class="dot down"></i>Gastos 1.180,50 €</span>
+          </div>
+          <div class="float-card fc-weather float-b" aria-hidden="true">
+            <span class="ms" aria-hidden="true">partly_cloudy_day</span>
+            <div><strong>22°</strong><small>Meteorología en la finca</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================== TODO EN UN SOLO LUGAR -->
+    <section class="section" id="funcionalidades">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker">Todo en un solo lugar</p>
+          <h2>Tus propiedades, organizadas.</h2>
+          <p class="lead">Leira reúne en una sola aplicación la información que necesitas para gestionar tus fincas y propiedades: dónde están, qué son, qué te cuestan y qué te dan.</p>
+        </header>
+        <ul class="tiles">
+          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">location_on</span><h3>Ubicación</h3><p>Cada finca dibujada en el mapa con su contorno real, y «Cómo llegar» con un toque.</p></li>
+          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">home_work</span><h3>Propiedades</h3><p>Fincas rústicas, terrenos, viviendas o locales: todas en tu lista, con búsqueda y orden.</p></li>
+          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">account_balance_wallet</span><h3>Gastos e ingresos</h3><p>Cada movimiento en su finca, con categoría, fecha y el balance siempre al día.</p></li>
+          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">photo_camera</span><h3>Fotos</h3><p>Fotos con su ubicación y una nota, para tener el estado de cada terreno a mano.</p></li>
+          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">picture_as_pdf</span><h3>Informes PDF</h3><p>Ficha técnica de la finca e informes económicos listos para guardar o imprimir.</p></li>
+          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">map</span><h3>Catastro</h3><p>Datos y geometría oficiales de la Dirección General del Catastro, sin buscarlos a mano.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====================================================== CATASTRO (DESTACADO) -->
+    <section class="section section-feature" id="catastro">
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <p class="kicker">Catastro</p>
+          <h2>Encuentra tus parcelas directamente en el mapa</h2>
+          <p class="lead">Explora las parcelas catastrales directamente desde el mapa y añade una finca a Leira en un solo toque.</p>
+          <ol class="steps" data-steps>
+            <li data-step="1"><span class="step-n">1</span><div><strong>Abre el mapa</strong><p>Tus fincas guardadas aparecen en verde.</p></div></li>
+            <li data-step="2"><span class="step-n">2</span><div><strong>Activa la capa Catastro</strong><p>Las parcelas oficiales se dibujan en naranja sobre el mapa.</p></div></li>
+            <li data-step="3"><span class="step-n">3</span><div><strong>Toca una parcela</strong><p>Leira la identifica y te enseña su superficie y municipio.</p></div></li>
+            <li data-step="4"><span class="step-n">4</span><div><strong>«Añadir a mis fincas»</strong><p>Y ya es tuya en Leira. Si la parcela tiene varios inmuebles, eliges cuál.</p></div></li>
+          </ol>
+          <p class="premium-note"><span class="ms crown" aria-hidden="true">workspace_premium</span>La capa Catastro en el mapa está disponible con Premium.</p>
+          <p class="aside">¿Ya tienes la referencia catastral? Escríbela y Leira trae la dirección, el uso, la superficie y el contorno de la parcela — en el plan gratuito.</p>
+        </div>
+        <div class="feature-visual reveal" role="img" aria-label="Ejemplo: mapa con las parcelas del Catastro en naranja, una finca guardada en verde y una parcela seleccionada con el botón Añadir a mis fincas">
+          <div class="phone">
+            <div class="screen">
+              <div class="app-bar"><span>Mapa</span><span class="app-avatar"><span class="ms" aria-hidden="true">grass</span></span></div>
+              <div class="map" data-map data-layer="sat" data-cad="on" data-demo-step="4">
+                <div class="m-pill m-cad-toggle"><span class="ms crown" aria-hidden="true">workspace_premium</span>Catastro<i class="switch on"></i></div>
+                <div class="m-callout">
+                  <strong>Parcela catastral</strong>
+                  <small>Superficie: 37.102 m²</small>
+                  <span class="m-add"><span class="ms" aria-hidden="true">add</span>Añadir a mis fincas</span>
+                </div>
+              </div>
+              <div class="tab-bar"><span class="on"><span class="ms" aria-hidden="true">map</span>Mapa</span><span><span class="ms" aria-hidden="true">list</span>Mis fincas</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <p class="compare reveal"><strong>Una app de Catastro te enseña una parcela.</strong> Leira te ayuda a gestionarla: su mapa, sus gastos, sus fotos y sus informes, en el mismo sitio.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================== MAPA -->
+    <section class="section" id="mapa">
+      <div class="wrap feature-grid reverse">
+        <div class="feature-copy reveal">
+          <p class="kicker">Mapa</p>
+          <h2>Tus fincas, siempre en el mapa</h2>
+          <p class="lead">Visualiza tus propiedades y descubre nuevas parcelas directamente desde el mapa.</p>
+          <div class="layer-switch" role="group" aria-label="Probar el tipo de mapa">
+            <button type="button" class="on" data-layer-btn="sat" aria-pressed="true"><span class="ms" aria-hidden="true">satellite_alt</span>Satélite</button>
+            <button type="button" data-layer-btn="ign" aria-pressed="false"><span class="ms" aria-hidden="true">map</span>Mapa</button>
+          </div>
+          <ul class="checks">
+            <li><span class="ms" aria-hidden="true">satellite_alt</span><div><strong>Satélite con carreteras y nombres</strong> para reconocer caminos, accesos y construcciones.</div></li>
+            <li><span class="ms" aria-hidden="true">layers</span><div><strong>Mapa del IGN</strong>, la cartografía oficial del Instituto Geográfico Nacional.</div></li>
+            <li><span class="ms" aria-hidden="true">my_location</span><div><strong>Tu ubicación</strong> y tus fincas en verde, con su contorno real.</div></li>
+            <li><span class="ms" aria-hidden="true">directions</span><div><strong>Cómo llegar</strong>: abre la ruta hasta la finca en tu app de mapas.</div></li>
+          </ul>
+        </div>
+        <div class="feature-visual reveal" role="img" aria-label="Mapa de Leira con fincas en verde; se puede alternar entre satélite y mapa del IGN">
+          <div class="map-card">
+            <div class="map" data-map data-layer="sat" data-cad="off" data-layer-target>
+              <div class="m-pill m-layers"><span class="on" data-pill="sat">Satélite</span><span data-pill="ign">Mapa</span></div>
+              <span class="m-fab-sm"><span class="ms" aria-hidden="true">my_location</span></span>
+              <span class="m-fab"><span class="ms" aria-hidden="true">add</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================== ECONOMÍA -->
+    <section class="section section-alt" id="economia">
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <p class="kicker">Economía</p>
+          <h2>Controla lo que entra y lo que sale</h2>
+          <p class="lead">Apunta cada gasto e ingreso en su finca y ten siempre a la vista si te cuesta o te da dinero.</p>
+          <ul class="checks">
+            <li><span class="ms" aria-hidden="true">receipt_long</span><div><strong>Movimientos por finca</strong>: IBI, mantenimiento, suministros, alquiler o venta.</div></li>
+            <li><span class="ms" aria-hidden="true">bar_chart</span><div><strong>Balance al instante</strong>, filtrado por todo, este año o este mes.</div></li>
+            <li><span class="ms" aria-hidden="true">document_scanner</span><div><strong>Escanea un ticket</strong> y la IA rellena el importe, el concepto y la fecha <span class="tag-premium">Premium</span></div></li>
+            <li><span class="ms" aria-hidden="true">eco</span><div><strong>Cultivos y masas forestales</strong> con su inversión, su crecimiento y su venta.</div></li>
+          </ul>
+        </div>
+        <div class="feature-visual reveal" role="img" aria-label="Pantalla Economía de una finca: balance, botones para añadir movimiento e informe PDF, y lista de movimientos de ejemplo">
+          <div class="phone">
+            <div class="screen">
+              <div class="app-bar"><span>Finca «La Vega»</span></div>
+              <div class="tabs4"><span>Ficha</span><span class="on">Economía</span><span>Cultivos</span><span>Campo</span></div>
+              <div class="eco">
+                <div class="eco-balance">
+                  <div><small>Ingresos</small><strong class="pos">4.250,00 €</strong></div>
+                  <div><small>Gastos</small><strong class="neg">1.180,50 €</strong></div>
+                  <div class="eco-net"><small>Balance</small><strong class="pos">+3.069,50 €</strong></div>
+                </div>
+                <div class="eco-actions"><span class="eco-add">+ Añadir movimiento</span><span class="eco-pdf"><span class="ms" aria-hidden="true">picture_as_pdf</span>Informe PDF</span></div>
+                <div class="chips"><span class="on">Todos</span><span>Este año</span><span>Este mes</span></div>
+                <ul class="moves">
+                  <li><span class="mv-ic in ms" aria-hidden="true">trending_up</span><div><strong>Alquiler nave</strong><small>Alquiler/Venta · 01/09/2026</small></div><b class="pos">+600,00 €</b></li>
+                  <li><span class="mv-ic out ms" aria-hidden="true">receipt_long</span><div><strong>IBI 2026</strong><small>Impuestos/IBI · 15/08/2026</small></div><b class="neg">−312,40 €</b></li>
+                  <li><span class="mv-ic out ms" aria-hidden="true">handyman</span><div><strong>Reparación vallado</strong><small>Mantenimiento · 02/08/2026</small></div><b class="neg">−245,00 €</b></li>
+                  <li><span class="mv-ic out ms" aria-hidden="true">water_drop</span><div><strong>Recibo luz del pozo</strong><small>Suministros · 28/07/2026</small></div><b class="neg">−86,10 €</b></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p class="mock-note">Datos de ejemplo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================== FOTOS Y DOCUMENTACIÓN -->
+    <section class="section" id="documentacion">
+      <div class="wrap feature-grid reverse">
+        <div class="feature-copy reveal">
+          <p class="kicker">Campo</p>
+          <h2>Toda la información de tu propiedad, contigo</h2>
+          <p class="lead">Guarda la información importante de cada propiedad para no tener que buscarla cada vez que la necesitas.</p>
+          <ul class="checks">
+            <li><span class="ms" aria-hidden="true">photo_camera</span><div><strong>Fotos con ubicación</strong> desde la cámara o la galería, con su nota y su sitio en el mapa.</div></li>
+            <li><span class="ms" aria-hidden="true">location_on</span><div><strong>Puntos de interés</strong> dentro de la finca: pozos, herramientas, incidencias o cultivos.</div></li>
+            <li><span class="ms" aria-hidden="true">terrain</span><div><strong>Ficha técnica</strong>: referencia, superficie, uso, perímetro, altitud, pendiente y coordenadas.</div></li>
+            <li><span class="ms" aria-hidden="true">share</span><div><strong>Comparte la ubicación</strong> por WhatsApp con quien tenga que llegar.</div></li>
+          </ul>
+        </div>
+        <div class="feature-visual reveal" aria-hidden="true">
+          <div class="doc-stack">
+            <div class="card info-card">
+              <p class="card-label">Referencia catastral</p>
+              <p class="mono">09094A06200053 0000YD</p>
+              <div class="info-grid">
+                <div><p class="card-label">Superficie</p><p>3,71 ha</p></div>
+                <div><p class="card-label">Uso</p><p>Agrario</p></div>
+                <div><p class="card-label">Altitud</p><p>812 m</p></div>
+                <div><p class="card-label">Pendiente</p><p>3 %</p></div>
+              </div>
+            </div>
+            <div class="card photos-card">
+              <p class="card-label">Fotos (6)</p>
+              <div class="photo-grid">
+                <span class="ph ph1"><span class="ms">location_on</span></span>
+                <span class="ph ph2"><span class="ms">location_on</span></span>
+                <span class="ph ph3"></span>
+                <span class="ph ph4"><span class="ms">location_on</span></span>
+                <span class="ph ph5"></span>
+                <span class="ph ph6"><span class="ms">location_on</span></span>
+              </div>
+            </div>
+            <div class="card poi-card">
+              <span class="poi" style="--c:#3b82f6"><span class="ms">water_drop</span></span>
+              <div><strong>Pozo</strong><small>A 120 m de ti</small></div>
+              <span class="poi-go"><span class="ms">directions</span></span>
+            </div>
+          </div>
+          <p class="mock-note">Datos de ejemplo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================== PDF -->
+    <section class="section section-alt" id="informes">
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <p class="kicker">Informes</p>
+          <h2>Convierte tus datos en un informe</h2>
+          <p class="lead">Con un toque, Leira genera un PDF limpio para guardar, imprimir o enviar.</p>
+          <ul class="checks">
+            <li><span class="ms" aria-hidden="true">description</span><div><strong>Informe de la finca</strong>: datos del Catastro, plano de la parcela, perímetro, altitud y pendiente.</div></li>
+            <li><span class="ms" aria-hidden="true">bar_chart</span><div><strong>Informe económico</strong>: ingresos, gastos, balance, gráficos por categoría y todos los movimientos.</div></li>
+            <li><span class="ms" aria-hidden="true">list</span><div><strong>Informe de todas tus fincas</strong> para el periodo que elijas: este año, el anterior o un rango.</div></li>
+          </ul>
+        </div>
+        <div class="feature-visual reveal" aria-hidden="true">
+          <div class="pdf">
+            <div class="pdf-head">
+              <span>INFORME FINANCIERO Y DE GESTIÓN</span>
+              <i class="qr"></i>
+            </div>
+            <div class="pdf-kpis">
+              <div><small>Ingresos</small><b class="pos">4.250 €</b></div>
+              <div><small>Gastos</small><b class="neg">1.181 €</b></div>
+              <div class="hl"><small>Balance</small><b>3.070 €</b></div>
+            </div>
+            <div class="pdf-charts">
+              <svg viewBox="0 0 42 42" class="donut"><circle r="15.9" cx="21" cy="21" fill="none" stroke="#e5e7eb" stroke-width="7"/><circle r="15.9" cx="21" cy="21" fill="none" stroke="#10b981" stroke-width="7" stroke-dasharray="44 56" stroke-dashoffset="25"/><circle r="15.9" cx="21" cy="21" fill="none" stroke="#f59e0b" stroke-width="7" stroke-dasharray="26 74" stroke-dashoffset="81"/><circle r="15.9" cx="21" cy="21" fill="none" stroke="#3b82f6" stroke-width="7" stroke-dasharray="18 82" stroke-dashoffset="55"/></svg>
+              <div class="bars"><i style="--h:92%" class="b-in"></i><i style="--h:30%" class="b-out"></i></div>
+            </div>
+            <div class="pdf-rows"><i></i><i></i><i></i><i></i><i></i><i></i><i class="tot"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================== OFFLINE -->
+    <section class="section" id="sin-conexion">
+      <div class="wrap feature-grid reverse">
+        <div class="feature-copy reveal">
+          <p class="kicker">Sin cobertura</p>
+          <h2>Tus fincas también cuando no tienes cobertura</h2>
+          <p class="lead">Lo que guardas en Leira vive en tu móvil. En mitad del campo puedes seguir consultando y apuntando.</p>
+          <ul class="checks">
+            <li><span class="ms" aria-hidden="true">check</span><div><strong>Tus fincas, sus datos y su contorno</strong>, puntos, fotos y movimientos, disponibles sin red.</div></li>
+            <li><span class="ms" aria-hidden="true">sync</span><div><strong>Con cuenta, todo se sincroniza</strong> al recuperar la cobertura, y lo tienes en otro móvil.</div></li>
+            <li><span class="ms" aria-hidden="true">download</span><div><strong>Descarga el mapa de cada finca</strong> para verlo en satélite sin conexión <span class="tag-premium">Premium</span></div></li>
+            <li class="muted"><span class="ms" aria-hidden="true">wifi_off</span><div>Dar de alta una finca nueva, el tiempo o la capa Catastro necesitan conexión.</div></li>
+          </ul>
+        </div>
+        <div class="feature-visual reveal" aria-hidden="true">
+          <div class="offline-card">
+            <div class="offline-banner"><span class="ms">cloud_off</span>Sin conexión: tus cambios se sincronizarán al recuperar la cobertura.</div>
+            <ul class="offline-list">
+              <li><span class="ms ok">check</span>Finca «La Vega» · 3,71 ha</li>
+              <li><span class="ms ok">check</span>4 puntos de interés</li>
+              <li><span class="ms ok">check</span>12 movimientos</li>
+              <li><span class="ms ok">check</span>Mapa descargado</li>
+              <li><span class="ms sy">sync</span>2 cambios pendientes de sincronizar</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================== PREMIUM -->
+    <section class="section premium" id="premium">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="badge-pro"><span class="ms" aria-hidden="true">workspace_premium</span>LEIRA PRO</p>
+          <h2>Lleva Leira un paso más allá</h2>
+          <p class="lead">Leira es gratis para gestionar tus fincas. Premium suma lo que más tiempo te ahorra.</p>
+        </header>
+        <div class="pro-hero reveal">
+          <div class="pro-hero-ic"><span class="ms" aria-hidden="true">map</span></div>
+          <div>
+            <p class="pro-new"><span class="ms crown" aria-hidden="true">workspace_premium</span>NUEVO EN PREMIUM</p>
+            <h3>Añade fincas desde el mapa</h3>
+            <p>Toca cualquier parcela del Catastro y añádela a Mis fincas en un solo toque.</p>
+          </div>
+        </div>
+        <ul class="pro-grid">
+          <li class="reveal"><span class="ms" aria-hidden="true">crop_free</span><h3>Escáner IA ilimitado</h3><p>Digitaliza tus tickets automáticamente.</p></li>
+          <li class="reveal"><span class="ms" aria-hidden="true">bar_chart</span><h3>Movimientos sin límite</h3><p>El plan gratuito llega a 20 por finca.</p></li>
+          <li class="reveal"><span class="ms" aria-hidden="true">cloud_done</span><h3>Fotos en la nube sin límite</h3><p>El plan gratuito guarda 35 fotos (100 MB).</p></li>
+          <li class="reveal"><span class="ms" aria-hidden="true">download</span><h3>Mapas sin conexión</h3><p>Descarga el satélite de cada finca.</p></li>
+          <li class="reveal"><span class="ms" aria-hidden="true">block</span><h3>Sin anuncios</h3><p>Una experiencia limpia y sin interrupciones.</p></li>
+        </ul>
+        <p class="pro-foot reveal">Se gestiona desde Google Play y puedes cancelar cuando quieras.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================== FAQ -->
+    <section class="section" id="faq">
+      <div class="wrap narrow">
+        <header class="section-head reveal">
+          <p class="kicker">FAQ</p>
+          <h2>Preguntas frecuentes</h2>
+        </header>
+        <div class="faq reveal">
+          <details>
+            <summary>¿Qué es Leira?<span class="ms" aria-hidden="true">expand_more</span></summary>
+            <p>Una app para registrar y gestionar tus fincas y propiedades a partir de su referencia catastral: las ves en el mapa con su contorno, consultas sus datos del Catastro, apuntas gastos e ingresos, guardas fotos y puntos de interés y generas informes en PDF.</p>
+          </details>
+          <details>
+            <summary>¿Para quién está pensada?<span class="ms" aria-hidden="true">expand_more</span></summary>
+            <p>Para cualquiera que tenga o gestione propiedades: fincas rústicas, terrenos, viviendas, locales o naves, tanto si es una como si son muchas.</p>
+          </details>
+          <details>
+            <summary>¿Puedo gestionar varias fincas?<span class="ms" aria-hidden="true">expand_more</span></summary>
+            <p>Sí. Todas aparecen en el mapa y en «Mis fincas», donde puedes buscarlas por nombre, municipio o cultivo y ordenarlas por fecha, superficie o nombre.</p>
+          </details>
+          <details>
+            <summary>¿Puedo consultar el Catastro?<span class="ms" aria-hidden="true">expand_more</span></summary>
+            <p>Sí. Escribe la referencia catastral y Leira obtiene de los servicios oficiales de la Dirección General del Catastro la dirección, el municipio, el uso, la superficie y el contorno de la parcela. Con Premium, además, puedes ver las parcelas directamente en el mapa. Navarra y el País Vasco tienen catastros propios y no están incluidos.</p>
+          </details>
+          <details>
+            <summary>¿Puedo guardar parcelas en Mis fincas?<span class="ms" aria-hidden="true">expand_more</span></summary>
+            <p>Sí, desde su referencia catastral o, con Premium, tocando la parcela en el mapa y pulsando «Añadir a mis fincas». Si la parcela tiene varios inmuebles (por ejemplo, pisos), eliges cuál añadir.</p>
+          </details>
+          <details>
+            <summary>¿Puedo controlar gastos e ingresos?<span class="ms" aria-hidden="true">expand_more</span></summary>
+            <p>Sí, por finca, con categorías y filtros por año o mes, y con informes en PDF. El plan gratuito permite 20 movimientos por finca; con Premium no hay límite y puedes escanear tickets con IA.</p>
+          </details>
+          <details>
+            <summary>¿Funciona sin conexión?<span class="ms" aria-hidden="true">expand_more</span></summary>
+            <p>Tus fincas y todo lo que guardas en ellas siguen disponibles sin red, y los cambios se sincronizan cuando vuelve la cobertura si tienes cuenta. Dar de alta una finca nueva, el tiempo y la capa Catastro necesitan conexión. Con Premium puedes descargar el mapa de satélite de cada finca para verlo sin red.</p>
+          </details>
+          <details>
+            <summary>¿Necesito crear una cuenta?<span class="ms" aria-hidden="true">expand_more</span></summary>
+            <p>No es obligatorio: puedes entrar como invitado y tus datos se guardan solo en ese móvil. Con una cuenta (email y contraseña) tus fincas se copian en la nube y las tienes en otro dispositivo.</p>
+          </details>
+          <details>
+            <summary>¿Qué incluye Premium?<span class="ms" aria-hidden="true">expand_more</span></summary>
+            <p>La capa Catastro en el mapa, el escáner de tickets con IA ilimitado, movimientos y fotos en la nube sin límite, mapas sin conexión y ninguna publicidad. Se gestiona desde Google Play y puedes cancelar cuando quieras.</p>
+          </details>
+          <details>
+            <summary>¿Dónde puedo descargar Leira?<span class="ms" aria-hidden="true">expand_more</span></summary>
+            <p>Leira llegará a Android a través de Google Play. Desde esta página tendrás el enlace en cuanto esté publicada.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================== DESCARGA -->
+    <section class="section download" id="descargar">
+      <div class="wrap">
+        <div class="download-card reveal">
+          <img src="assets/logo@2x.png" width="70" height="90" alt="">
+          <h2>Empieza a gestionar tus propiedades de otra manera.</h2>
+          <p class="lead">Tus fincas, sus datos y sus cuentas, en tu bolsillo.</p>
+          <a class="btn btn-primary btn-lg" data-play href="#descargar">
+            <span class="ms" aria-hidden="true">download</span>
+            <span data-play-label data-ready-label="Descargar Leira en Google Play">Próximamente en Google Play</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================== FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top"><img src="assets/logo.png" srcset="assets/logo@2x.png 2x" width="25" height="32" alt="" loading="lazy"><span>Leira</span></a>
+        <p>Gestiona tus fincas y propiedades: mapa, Catastro, gastos e ingresos, fotos e informes en una sola app.</p>
+      </div>
+      <nav aria-label="Secciones">
+        <p class="footer-h">Leira</p>
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#catastro">Catastro</a>
+        <a href="#premium">Premium</a>
+        <a href="#faq">FAQ</a>
+        <a href="#descargar" data-play-text>Google Play</a>
+      </nav>
+      <nav aria-label="Legal">
+        <p class="footer-h">Legal</p>
+        <a href="https://asvdesarrolloweb-cmd.github.io/leira-privacidad/aviso-legal/">Aviso legal</a>
+        <a href="https://asvdesarrolloweb-cmd.github.io/leira-privacidad/">Privacidad</a>
+        <a href="https://asvdesarrolloweb-cmd.github.io/leira-privacidad/terminos/">Términos</a>
+        <a href="https://asvdesarrolloweb-cmd.github.io/leira-privacidad/eliminar-cuenta/">Eliminar cuenta</a>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© <span data-year>2026</span> Leira. Datos catastrales: Dirección General del Catastro. Cartografía: © IGN España.</p>
+    </div>
+  </footer>
+
+  <!-- Ilustración del mapa de los mockups (generada por tools/build-map-art.py, se clona en cada
+       [data-map]). -->
+  <template id="map-art"><!--MAP-ART:START--><svg class="map-svg" viewBox="0 0 360 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="furrows0" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><rect width="7" height="2" fill="#000" opacity=".22"/></pattern><pattern id="furrows1" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-10)"><rect width="7" height="2" fill="#000" opacity=".22"/></pattern><pattern id="furrows2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(15)"><rect width="7" height="2" fill="#000" opacity=".22"/></pattern><pattern id="furrows3" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(40)"><rect width="7" height="2" fill="#000" opacity=".22"/></pattern><pattern id="furrows4" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(70)"><rect width="7" height="2" fill="#000" opacity=".22"/></pattern>
+  </defs>
+  <g class="m-sat"><rect width="360" height="600" fill="#24371f"/><polygon points="0.0,0.0 59.1,0.0 60.2,59.4 0.0,70.9" fill="#2c4428"/><polygon points="0.0,0.0 59.1,0.0 60.2,59.4 0.0,70.9" fill="url(#furrows3)" opacity=".3"/><polygon points="59.1,0.0 132.2,0.0 142.2,58.9 60.2,59.4" fill="#4b5a30"/><polygon points="59.1,0.0 132.2,0.0 142.2,58.9 60.2,59.4" fill="url(#furrows4)" opacity=".3"/><polygon points="132.2,0.0 218.2,0.0 212.1,59.7 142.2,58.9" fill="#4f6a35"/><polygon points="132.2,0.0 218.2,0.0 212.1,59.7 142.2,58.9" fill="url(#furrows0)" opacity=".3"/><polygon points="218.2,0.0 278.0,0.0 278.5,68.2 212.1,59.7" fill="#6e6640"/><polygon points="218.2,0.0 278.0,0.0 278.5,68.2 212.1,59.7" fill="url(#furrows1)" opacity=".3"/><polygon points="278.0,0.0 360.0,0.0 360.0,77.8 278.5,68.2" fill="#7a6d48"/><polygon points="278.0,0.0 360.0,0.0 360.0,77.8 278.5,68.2" fill="url(#furrows3)" opacity=".3"/><polygon points="0.0,70.9 60.2,59.4 56.3,141.1 0.0,129.0" fill="#35502d"/><polygon points="0.0,70.9 60.2,59.4 56.3,141.1 0.0,129.0" fill="url(#furrows1)" opacity=".3"/><polygon points="60.2,59.4 142.2,58.9 154.5,139.9 56.3,141.1" fill="#7a6d48"/><polygon points="60.2,59.4 142.2,58.9 154.5,139.9 56.3,141.1" fill="url(#furrows4)" opacity=".3"/><polygon points="142.2,58.9 212.1,59.7 211.1,149.4 154.5,139.9" fill="#4b5a30"/><polygon points="142.2,58.9 212.1,59.7 211.1,149.4 154.5,139.9" fill="url(#furrows3)" opacity=".3"/><polygon points="212.1,59.7 278.5,68.2 277.3,146.6 211.1,149.4" fill="#7a6d48"/><polygon points="212.1,59.7 278.5,68.2 277.3,146.6 211.1,149.4" fill="url(#furrows2)" opacity=".3"/><polygon points="278.5,68.2 360.0,77.8 360.0,133.0 277.3,146.6" fill="#5f5f36"/><polygon points="278.5,68.2 360.0,77.8 360.0,133.0 277.3,146.6" fill="url(#furrows1)" opacity=".3"/><polygon points="0.0,129.0 56.3,141.1 53.3,209.4 0.0,205.5" fill="#4b5a30"/><polygon points="0.0,129.0 56.3,141.1 53.3,209.4 0.0,205.5" fill="url(#furrows1)" opacity=".3"/><polygon points="56.3,141.1 154.5,139.9 150.9,206.3 53.3,209.4" fill="#5f5f36"/><polygon points="56.3,141.1 154.5,139.9 150.9,206.3 53.3,209.4" fill="url(#furrows0)" opacity=".3"/><polygon points="154.5,139.9 211.1,149.4 216.3,217.3 150.9,206.3" fill="#4b5a30"/><polygon points="154.5,139.9 211.1,149.4 216.3,217.3 150.9,206.3" fill="url(#furrows2)" opacity=".3"/><polygon points="211.1,149.4 277.3,146.6 286.4,215.1 216.3,217.3" fill="#2c4428"/><polygon points="211.1,149.4 277.3,146.6 286.4,215.1 216.3,217.3" fill="url(#furrows1)" opacity=".3"/><polygon points="277.3,146.6 360.0,133.0 360.0,203.5 286.4,215.1" fill="#3e5631"/><polygon points="277.3,146.6 360.0,133.0 360.0,203.5 286.4,215.1" fill="url(#furrows4)" opacity=".3"/><polygon points="0.0,205.5 53.3,209.4 55.8,284.3 0.0,269.4" fill="#4b5a30"/><polygon points="0.0,205.5 53.3,209.4 55.8,284.3 0.0,269.4" fill="url(#furrows4)" opacity=".3"/><polygon points="53.3,209.4 150.9,206.3 140.0,275.5 55.8,284.3" fill="#4f6a35"/><polygon points="53.3,209.4 150.9,206.3 140.0,275.5 55.8,284.3" fill="url(#furrows4)" opacity=".3"/><polygon points="150.9,206.3 216.3,217.3 216.4,278.9 140.0,275.5" fill="#7a6d48"/><polygon points="150.9,206.3 216.3,217.3 216.4,278.9 140.0,275.5" fill="url(#furrows3)" opacity=".3"/><polygon points="216.3,217.3 286.4,215.1 284.4,287.1 216.4,278.9" fill="#35502d"/><polygon points="216.3,217.3 286.4,215.1 284.4,287.1 216.4,278.9" fill="url(#furrows3)" opacity=".3"/><polygon points="286.4,215.1 360.0,203.5 360.0,284.8 284.4,287.1" fill="#2c4428"/><polygon points="286.4,215.1 360.0,203.5 360.0,284.8 284.4,287.1" fill="url(#furrows1)" opacity=".3"/><polygon points="0.0,269.4 55.8,284.3 66.1,352.6 0.0,345.9" fill="#5f5f36"/><polygon points="0.0,269.4 55.8,284.3 66.1,352.6 0.0,345.9" fill="url(#furrows3)" opacity=".3"/><polygon points="55.8,284.3 140.0,275.5 152.5,357.5 66.1,352.6" fill="#35502d"/><polygon points="55.8,284.3 140.0,275.5 152.5,357.5 66.1,352.6" fill="url(#furrows2)" opacity=".3"/><polygon points="140.0,275.5 216.4,278.9 208.1,363.5 152.5,357.5" fill="#35502d"/><polygon points="140.0,275.5 216.4,278.9 208.1,363.5 152.5,357.5" fill="url(#furrows0)" opacity=".3"/><polygon points="216.4,278.9 284.4,287.1 279.3,350.0 208.1,363.5" fill="#35502d"/><polygon points="216.4,278.9 284.4,287.1 279.3,350.0 208.1,363.5" fill="url(#furrows2)" opacity=".3"/><polygon points="284.4,287.1 360.0,284.8 360.0,358.2 279.3,350.0" fill="#35502d"/><polygon points="284.4,287.1 360.0,284.8 360.0,358.2 279.3,350.0" fill="url(#furrows1)" opacity=".3"/><polygon points="0.0,345.9 66.1,352.6 63.7,416.9 0.0,419.6" fill="#4b5a30"/><polygon points="0.0,345.9 66.1,352.6 63.7,416.9 0.0,419.6" fill="url(#furrows2)" opacity=".3"/><polygon points="66.1,352.6 152.5,357.5 146.7,434.3 63.7,416.9" fill="#3e5631"/><polygon points="66.1,352.6 152.5,357.5 146.7,434.3 63.7,416.9" fill="url(#furrows3)" opacity=".3"/><polygon points="152.5,357.5 208.1,363.5 216.0,437.0 146.7,434.3" fill="#35502d"/><polygon points="152.5,357.5 208.1,363.5 216.0,437.0 146.7,434.3" fill="url(#furrows3)" opacity=".3"/><polygon points="208.1,363.5 279.3,350.0 284.8,432.7 216.0,437.0" fill="#4f6a35"/><polygon points="208.1,363.5 279.3,350.0 284.8,432.7 216.0,437.0" fill="url(#furrows3)" opacity=".3"/><polygon points="279.3,350.0 360.0,358.2 360.0,430.3 284.8,432.7" fill="#35502d"/><polygon points="279.3,350.0 360.0,358.2 360.0,430.3 284.8,432.7" fill="url(#furrows1)" opacity=".3"/><polygon points="0.0,419.6 63.7,416.9 62.8,514.2 0.0,507.9" fill="#3e5631"/><polygon points="0.0,419.6 63.7,416.9 62.8,514.2 0.0,507.9" fill="url(#furrows2)" opacity=".3"/><polygon points="63.7,416.9 146.7,434.3 154.5,505.4 62.8,514.2" fill="#4b5a30"/><polygon points="63.7,416.9 146.7,434.3 154.5,505.4 62.8,514.2" fill="url(#furrows4)" opacity=".3"/><polygon points="146.7,434.3 216.0,437.0 218.6,495.5 154.5,505.4" fill="#5f5f36"/><polygon points="146.7,434.3 216.0,437.0 218.6,495.5 154.5,505.4" fill="url(#furrows4)" opacity=".3"/><polygon points="216.0,437.0 284.8,432.7 295.6,509.5 218.6,495.5" fill="#4b5a30"/><polygon points="216.0,437.0 284.8,432.7 295.6,509.5 218.6,495.5" fill="url(#furrows4)" opacity=".3"/><polygon points="284.8,432.7 360.0,430.3 360.0,517.8 295.6,509.5" fill="#6e6640"/><polygon points="284.8,432.7 360.0,430.3 360.0,517.8 295.6,509.5" fill="url(#furrows0)" opacity=".3"/><polygon points="0.0,507.9 62.8,514.2 73.0,600.0 0.0,600.0" fill="#3e5631"/><polygon points="0.0,507.9 62.8,514.2 73.0,600.0 0.0,600.0" fill="url(#furrows1)" opacity=".3"/><polygon points="62.8,514.2 154.5,505.4 136.0,600.0 73.0,600.0" fill="#5f5f36"/><polygon points="62.8,514.2 154.5,505.4 136.0,600.0 73.0,600.0" fill="url(#furrows4)" opacity=".3"/><polygon points="154.5,505.4 218.6,495.5 210.8,600.0 136.0,600.0" fill="#5f5f36"/><polygon points="154.5,505.4 218.6,495.5 210.8,600.0 136.0,600.0" fill="url(#furrows4)" opacity=".3"/><polygon points="218.6,495.5 295.6,509.5 294.7,600.0 210.8,600.0" fill="#5f5f36"/><polygon points="218.6,495.5 295.6,509.5 294.7,600.0 210.8,600.0" fill="url(#furrows3)" opacity=".3"/><polygon points="295.6,509.5 360.0,517.8 360.0,600.0 294.7,600.0" fill="#5f5f36"/><polygon points="295.6,509.5 360.0,517.8 360.0,600.0 294.7,600.0" fill="url(#furrows4)" opacity=".3"/></g>
+  <g class="m-ign"><rect width="360" height="600" fill="#f6f3e8"/><polygon points="0.0,0.0 59.1,0.0 60.2,59.4 0.0,70.9" fill="#f1ecd9"/><polygon points="59.1,0.0 132.2,0.0 142.2,58.9 60.2,59.4" fill="#f3f0e4"/><polygon points="132.2,0.0 218.2,0.0 212.1,59.7 142.2,58.9" fill="#eef0df"/><polygon points="218.2,0.0 278.0,0.0 278.5,68.2 212.1,59.7" fill="#eef0df"/><polygon points="278.0,0.0 360.0,0.0 360.0,77.8 278.5,68.2" fill="#ecefe1"/><polygon points="0.0,70.9 60.2,59.4 56.3,141.1 0.0,129.0" fill="#ecefe1"/><polygon points="60.2,59.4 142.2,58.9 154.5,139.9 56.3,141.1" fill="#f1ecd9"/><polygon points="142.2,58.9 212.1,59.7 211.1,149.4 154.5,139.9" fill="#f1ecd9"/><polygon points="212.1,59.7 278.5,68.2 277.3,146.6 211.1,149.4" fill="#ecefe1"/><polygon points="278.5,68.2 360.0,77.8 360.0,133.0 277.3,146.6" fill="#f3f0e4"/><polygon points="0.0,129.0 56.3,141.1 53.3,209.4 0.0,205.5" fill="#eef0df"/><polygon points="56.3,141.1 154.5,139.9 150.9,206.3 53.3,209.4" fill="#ecefe1"/><polygon points="154.5,139.9 211.1,149.4 216.3,217.3 150.9,206.3" fill="#f1ecd9"/><polygon points="211.1,149.4 277.3,146.6 286.4,215.1 216.3,217.3" fill="#ecefe1"/><polygon points="277.3,146.6 360.0,133.0 360.0,203.5 286.4,215.1" fill="#f1ecd9"/><polygon points="0.0,205.5 53.3,209.4 55.8,284.3 0.0,269.4" fill="#f3f0e4"/><polygon points="53.3,209.4 150.9,206.3 140.0,275.5 55.8,284.3" fill="#ecefe1"/><polygon points="150.9,206.3 216.3,217.3 216.4,278.9 140.0,275.5" fill="#ecefe1"/><polygon points="216.3,217.3 286.4,215.1 284.4,287.1 216.4,278.9" fill="#ecefe1"/><polygon points="286.4,215.1 360.0,203.5 360.0,284.8 284.4,287.1" fill="#f3f0e4"/><polygon points="0.0,269.4 55.8,284.3 66.1,352.6 0.0,345.9" fill="#eef0df"/><polygon points="55.8,284.3 140.0,275.5 152.5,357.5 66.1,352.6" fill="#f3f0e4"/><polygon points="140.0,275.5 216.4,278.9 208.1,363.5 152.5,357.5" fill="#eef0df"/><polygon points="216.4,278.9 284.4,287.1 279.3,350.0 208.1,363.5" fill="#f3f0e4"/><polygon points="284.4,287.1 360.0,284.8 360.0,358.2 279.3,350.0" fill="#ecefe1"/><polygon points="0.0,345.9 66.1,352.6 63.7,416.9 0.0,419.6" fill="#f1ecd9"/><polygon points="66.1,352.6 152.5,357.5 146.7,434.3 63.7,416.9" fill="#f3f0e4"/><polygon points="152.5,357.5 208.1,363.5 216.0,437.0 146.7,434.3" fill="#ecefe1"/><polygon points="208.1,363.5 279.3,350.0 284.8,432.7 216.0,437.0" fill="#f1ecd9"/><polygon points="279.3,350.0 360.0,358.2 360.0,430.3 284.8,432.7" fill="#f3f0e4"/><polygon points="0.0,419.6 63.7,416.9 62.8,514.2 0.0,507.9" fill="#ecefe1"/><polygon points="63.7,416.9 146.7,434.3 154.5,505.4 62.8,514.2" fill="#f3f0e4"/><polygon points="146.7,434.3 216.0,437.0 218.6,495.5 154.5,505.4" fill="#f1ecd9"/><polygon points="216.0,437.0 284.8,432.7 295.6,509.5 218.6,495.5" fill="#f3f0e4"/><polygon points="284.8,432.7 360.0,430.3 360.0,517.8 295.6,509.5" fill="#f1ecd9"/><polygon points="0.0,507.9 62.8,514.2 73.0,600.0 0.0,600.0" fill="#f1ecd9"/><polygon points="62.8,514.2 154.5,505.4 136.0,600.0 73.0,600.0" fill="#f1ecd9"/><polygon points="154.5,505.4 218.6,495.5 210.8,600.0 136.0,600.0" fill="#eef0df"/><polygon points="218.6,495.5 295.6,509.5 294.7,600.0 210.8,600.0" fill="#eef0df"/><polygon points="295.6,509.5 360.0,517.8 360.0,600.0 294.7,600.0" fill="#ecefe1"/>
+    <path d="M-10 470 C 60 430, 120 470, 190 420 S 300 380, 370 400" fill="none" stroke="#9cc3e6" stroke-width="5"/>
+  </g>
+  <g class="m-roads">
+    <path class="m-road-casing" d="M-10 120 C 80 150, 150 110, 230 160 S 330 250, 370 230"/>
+    <path class="m-road" d="M-10 120 C 80 150, 150 110, 230 160 S 330 250, 370 230"/>
+    <path class="m-track" d="M120 -10 C 140 120, 100 260, 170 380 S 210 520, 200 610"/>
+  </g>
+  <g class="m-cad"><polygon points="0.0,0.0 59.1,0.0 60.2,59.4 0.0,70.9"/><polygon points="59.1,0.0 132.2,0.0 142.2,58.9 60.2,59.4"/><polygon points="132.2,0.0 218.2,0.0 212.1,59.7 142.2,58.9"/><polygon points="218.2,0.0 278.0,0.0 278.5,68.2 212.1,59.7"/><polygon points="278.0,0.0 360.0,0.0 360.0,77.8 278.5,68.2"/><polygon points="0.0,70.9 60.2,59.4 56.3,141.1 0.0,129.0"/><polygon points="60.2,59.4 142.2,58.9 154.5,139.9 56.3,141.1"/><polygon points="142.2,58.9 212.1,59.7 211.1,149.4 154.5,139.9"/><polygon points="212.1,59.7 278.5,68.2 277.3,146.6 211.1,149.4"/><polygon points="278.5,68.2 360.0,77.8 360.0,133.0 277.3,146.6"/><polygon points="0.0,129.0 56.3,141.1 53.3,209.4 0.0,205.5"/><polygon points="56.3,141.1 154.5,139.9 150.9,206.3 53.3,209.4"/><polygon points="154.5,139.9 211.1,149.4 216.3,217.3 150.9,206.3"/><polygon points="211.1,149.4 277.3,146.6 286.4,215.1 216.3,217.3"/><polygon points="277.3,146.6 360.0,133.0 360.0,203.5 286.4,215.1"/><polygon points="0.0,205.5 53.3,209.4 55.8,284.3 0.0,269.4"/><polygon points="53.3,209.4 150.9,206.3 140.0,275.5 55.8,284.3"/><polygon points="150.9,206.3 216.3,217.3 216.4,278.9 140.0,275.5"/><polygon points="216.3,217.3 286.4,215.1 284.4,287.1 216.4,278.9"/><polygon points="286.4,215.1 360.0,203.5 360.0,284.8 284.4,287.1"/><polygon points="0.0,269.4 55.8,284.3 66.1,352.6 0.0,345.9"/><polygon points="55.8,284.3 140.0,275.5 152.5,357.5 66.1,352.6"/><polygon points="140.0,275.5 216.4,278.9 208.1,363.5 152.5,357.5"/><polygon points="216.4,278.9 284.4,287.1 279.3,350.0 208.1,363.5"/><polygon points="284.4,287.1 360.0,284.8 360.0,358.2 279.3,350.0"/><polygon points="0.0,345.9 66.1,352.6 63.7,416.9 0.0,419.6"/><polygon points="66.1,352.6 152.5,357.5 146.7,434.3 63.7,416.9"/><polygon points="152.5,357.5 208.1,363.5 216.0,437.0 146.7,434.3"/><polygon points="208.1,363.5 279.3,350.0 284.8,432.7 216.0,437.0"/><polygon points="279.3,350.0 360.0,358.2 360.0,430.3 284.8,432.7"/><polygon points="0.0,419.6 63.7,416.9 62.8,514.2 0.0,507.9"/><polygon points="63.7,416.9 146.7,434.3 154.5,505.4 62.8,514.2"/><polygon points="146.7,434.3 216.0,437.0 218.6,495.5 154.5,505.4"/><polygon points="216.0,437.0 284.8,432.7 295.6,509.5 218.6,495.5"/><polygon points="284.8,432.7 360.0,430.3 360.0,517.8 295.6,509.5"/><polygon points="0.0,507.9 62.8,514.2 73.0,600.0 0.0,600.0"/><polygon points="62.8,514.2 154.5,505.4 136.0,600.0 73.0,600.0"/><polygon points="154.5,505.4 218.6,495.5 210.8,600.0 136.0,600.0"/><polygon points="218.6,495.5 295.6,509.5 294.7,600.0 210.8,600.0"/><polygon points="295.6,509.5 360.0,517.8 360.0,600.0 294.7,600.0"/></g>
+  <g class="m-saved"><polygon class="m-finca" points="150.9,206.3 216.3,217.3 216.4,278.9 140.0,275.5"/><polygon class="m-finca" points="212.1,59.7 278.5,68.2 277.3,146.6 211.1,149.4"/></g>
+  <g class="m-selected"><polygon class="m-sel" points="66.1,352.6 152.5,357.5 146.7,434.3 63.7,416.9"/>
+    <circle class="m-tap" cx="107" cy="390" r="16"/>
+  </g>
+  <g class="m-labels">
+    <rect x="252" y="196" width="46" height="16" rx="3" fill="#2f9e44"/>
+    <text x="275" y="208" text-anchor="middle" class="m-shield">BU-400</text>
+    <text x="40" y="104" class="m-label" transform="rotate(12 40 104)">Camino Real</text>
+    <text x="150" y="300" class="m-label" transform="rotate(-70 150 300)">Camino del Barranco</text>
+    <text x="56" y="458" class="m-label m-label-water">Arroyo</text>
+  </g>
+  <g class="m-user"><circle cx="300" cy="470" r="14" class="m-user-halo"/><circle cx="300" cy="470" r="6" class="m-user-dot"/></g>
+</svg><!--MAP-ART:END--></template>
+</body>
+</html>
