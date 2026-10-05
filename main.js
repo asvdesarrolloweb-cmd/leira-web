@@ -43,6 +43,14 @@ function setupPlayButtons() {
       }
     }
   });
+  // «Descargar» de la barra superior: lleva a la sección de descarga hasta que haya URL.
+  document.querySelectorAll('[data-play-nav]').forEach((a) => {
+    if (ready) {
+      a.href = GOOGLE_PLAY_URL;
+      a.target = '_blank';
+      a.rel = 'noopener';
+    }
+  });
   document.querySelectorAll('[data-play-text]').forEach((a) => {
     const label = a.querySelector('[data-play-label]');
     if (label) label.textContent = ready ? READY_LABEL : SOON_LABEL;

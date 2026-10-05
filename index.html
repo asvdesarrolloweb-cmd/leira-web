@@ -30,7 +30,7 @@
   <!-- Iconos: los mismos Material Icons que usa la app, solo los que aparecen en la página. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,400..600,0..1,0&icon_names=account_balance_wallet,add,apartment,arrow_downward,bar_chart,block,check,check_circle,close,cloud_done,cloud_off,crop_free,description,directions,document_scanner,download,expand_more,folder_open,forest,grass,handyman,list,location_on,map,menu,my_location,payments,photo_camera,picture_as_pdf,receipt_long,satellite_alt,sync,terrain,travel_explore,trending_up,water_drop,wifi_off,workspace_premium&display=block">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,400..600,0..1,0&icon_names=account_balance_wallet,add,add_location_alt,apartment,arrow_downward,bar_chart,block,check,check_circle,close,cloud_done,cloud_off,crop_free,description,document_scanner,download,expand_more,forest,grass,handyman,list,location_on,map,menu,my_location,photo_camera,picture_as_pdf,receipt_long,satellite_alt,storefront,sync,touch_app,travel_explore,trending_up,water_drop,wifi,wifi_off,workspace_premium&display=block">
 
   <link rel="stylesheet" href="styles.css">
   <script src="main.js" defer></script>
@@ -50,10 +50,10 @@
         <a href="#catastro">Catastro</a>
         <a href="#premium">Premium</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn-sm btn-primary nav-cta-desktop" href="#descargar">Descargar</a>
+        <a class="btn btn-sm btn-primary nav-cta-desktop" data-play-nav href="#descargar">Descargar</a>
       </nav>
       <div class="nav-right">
-        <a class="btn btn-sm btn-primary nav-cta-mobile" href="#descargar">Descargar</a>
+        <a class="btn btn-sm btn-primary nav-cta-mobile" data-play-nav href="#descargar">Descargar</a>
         <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú" data-nav-toggle>
           <span class="ms" aria-hidden="true">menu</span>
         </button>
@@ -69,7 +69,7 @@
         <div class="hero-copy reveal">
           <p class="eyebrow"><img src="assets/logo.png" width="14" height="18" alt=""> Leira para Android</p>
           <h1>Tus fincas.<br><span class="accent">Todo bajo control.</span></h1>
-          <p class="lead">Catastro, ubicación, gastos, fotos y documentación. Todo en una sola aplicación.</p>
+          <p class="lead">Catastro, mapa, gastos, fotos y documentos. Todo en una sola aplicación.</p>
           <div class="cta-row">
             <a class="btn btn-primary btn-lg" data-play href="#descargar">
               <span class="ms" aria-hidden="true">download</span>
@@ -113,14 +113,15 @@
     <section class="section section-tight" id="funcionalidades">
       <div class="wrap">
         <header class="section-head reveal">
-          <h2 class="claim">Catastro te dice qué hay.<br><span class="accent">Leira te ayuda a gestionarlo.</span></h2>
-          <p class="lead">Consulta tus parcelas desde el mapa, guárdalas en tus fincas y gestiona toda su información desde un solo lugar.</p>
+          <h2 class="claim">Una app de Catastro te enseña una parcela.<br><span class="accent">Leira te ayuda a gestionarla.</span></h2>
         </header>
-        <ol class="trio">
-          <li class="reveal"><span class="trio-ic ms" aria-hidden="true">travel_explore</span><h3>Encuéntrala</h3><p>Consulta parcelas directamente desde el mapa.</p></li>
-          <li class="reveal"><span class="trio-ic ms" aria-hidden="true">folder_open</span><h3>Organízala</h3><p>Guarda información, fotos y documentación.</p></li>
-          <li class="reveal"><span class="trio-ic ms" aria-hidden="true">payments</span><h3>Gestiónala</h3><p>Controla gastos, ingresos y genera informes.</p></li>
+        <ol class="flow reveal" aria-label="Cómo funciona">
+          <li><span class="flow-ic ms" aria-hidden="true">travel_explore</span><span>Encuentra una parcela</span></li>
+          <li><span class="flow-ic ms" aria-hidden="true">touch_app</span><span>Selecciónala</span></li>
+          <li><span class="flow-ic ms" aria-hidden="true">add_location_alt</span><span>Añádela a tus fincas</span></li>
+          <li><span class="flow-ic ms" aria-hidden="true">account_balance_wallet</span><span>Gestiónala desde Leira</span></li>
         </ol>
+        <p class="flow-sub reveal">Catastro + mapa + gastos + fotos + documentos, todo en un solo lugar.</p>
       </div>
     </section>
 
@@ -129,13 +130,13 @@
       <div class="wrap">
         <header class="section-head reveal">
           <p class="kicker">Para quién</p>
-          <h2>Una sola app para tus propiedades</h2>
+          <h2>Para cualquier propiedad que quieras tener bajo control</h2>
         </header>
         <ul class="who">
-          <li class="reveal"><span class="who-ic ms" aria-hidden="true">apartment</span><h3>Viviendas y alquileres</h3><p>Gastos, ingresos y documentación de cada vivienda o local.</p></li>
-          <li class="reveal"><span class="who-ic ms" aria-hidden="true">forest</span><h3>Fincas y terrenos</h3><p>Localiza tus parcelas y ten su información organizada.</p></li>
-          <li class="reveal"><span class="who-ic ms" aria-hidden="true">location_on</span><h3>Varias propiedades</h3><p>Todas en el mismo mapa y la misma lista.</p></li>
-          <li class="reveal"><span class="who-ic ms" aria-hidden="true">description</span><h3>Información y documentos</h3><p>Fotos, datos e informes asociados a cada propiedad.</p></li>
+          <li class="reveal"><span class="who-ic ms" aria-hidden="true">apartment</span><h3>Viviendas y alquileres</h3><p>Controla gastos, ingresos y documentación.</p></li>
+          <li class="reveal"><span class="who-ic ms" aria-hidden="true">forest</span><h3>Fincas y terrenos</h3><p>Localiza tus parcelas y mantén su información organizada.</p></li>
+          <li class="reveal"><span class="who-ic ms" aria-hidden="true">storefront</span><h3>Locales y otras propiedades</h3><p>Naves, locales o garajes: cualquier inmueble con referencia catastral.</p></li>
+          <li class="reveal"><span class="who-ic ms" aria-hidden="true">location_on</span><h3>Varias propiedades</h3><p>Todas organizadas en el mismo mapa y la misma lista.</p></li>
         </ul>
       </div>
     </section>
@@ -225,8 +226,7 @@
           <p class="kicker">Economía</p>
           <h2>Controla lo que entra y lo que sale</h2>
           <ul class="mini">
-            <li><span class="ms" aria-hidden="true">receipt_long</span>Gastos e ingresos por finca</li>
-            <li><span class="ms" aria-hidden="true">bar_chart</span>Balance al instante, por año o mes</li>
+            <li><span class="ms" aria-hidden="true">bar_chart</span>Gastos, ingresos y balance de cada finca</li>
             <li><span class="ms" aria-hidden="true">document_scanner</span>Tickets escaneados con IA <span class="tag-premium">Premium</span></li>
           </ul>
         </div>
@@ -252,7 +252,7 @@
               </div>
             </div>
           </div>
-          <p class="mock-note">Datos de ejemplo.</p>
+          <p class="mock-note">Datos de demostración.</p>
         </div>
       </div>
     </section>
@@ -263,11 +263,10 @@
         <div class="feature-copy reveal">
           <p class="kicker">Campo</p>
           <h2>Toda la información de tu propiedad, contigo</h2>
-          <p class="lead">Guarda la información importante de cada propiedad y tenla siempre organizada.</p>
+          <p class="lead">Guarda la información importante de cada propiedad y tenla organizada cuando la necesites.</p>
           <ul class="mini">
             <li><span class="ms" aria-hidden="true">photo_camera</span>Fotos con su ubicación y una nota</li>
             <li><span class="ms" aria-hidden="true">location_on</span>Puntos de interés: pozos, aperos, incidencias</li>
-            <li><span class="ms" aria-hidden="true">terrain</span>Ficha técnica: superficie, altitud, pendiente</li>
           </ul>
         </div>
         <div class="feature-visual reveal" aria-hidden="true">
@@ -293,13 +292,18 @@
                 <span class="ph ph6"><span class="ms">location_on</span></span>
               </div>
             </div>
-            <div class="card poi-card">
-              <span class="poi" style="--c:#3b82f6"><span class="ms">water_drop</span></span>
-              <div><strong>Pozo</strong><small>A 120 m de ti</small></div>
-              <span class="poi-go"><span class="ms">directions</span></span>
+            <div class="doc-row">
+              <div class="card poi-card">
+                <span class="poi" style="--c:#3b82f6"><span class="ms">water_drop</span></span>
+                <div><strong>Pozo</strong><small>A 120 m de ti</small></div>
+              </div>
+              <div class="card pdf-chip">
+                <span class="ms">picture_as_pdf</span>
+                <div><strong>Informe Finca</strong><small>PDF</small></div>
+              </div>
             </div>
           </div>
-          <p class="mock-note">Datos de ejemplo.</p>
+          <p class="mock-note">Datos de demostración.</p>
         </div>
       </div>
     </section>
@@ -311,9 +315,8 @@
           <p class="kicker">Informes</p>
           <h2>Convierte tus datos en un informe</h2>
           <ul class="mini">
-            <li><span class="ms" aria-hidden="true">description</span>Informe de la finca: datos del Catastro, plano, perímetro, altitud y pendiente</li>
-            <li><span class="ms" aria-hidden="true">bar_chart</span>Informe económico: balance, gráficos y movimientos</li>
-            <li><span class="ms" aria-hidden="true">list</span>Informe de todas tus fincas por periodo</li>
+            <li><span class="ms" aria-hidden="true">description</span>De la finca: datos del Catastro, plano, perímetro, altitud y pendiente</li>
+            <li><span class="ms" aria-hidden="true">bar_chart</span>Económico: de una finca o de todas, por periodo</li>
           </ul>
         </div>
         <div class="feature-visual reveal" aria-hidden="true">
@@ -326,12 +329,13 @@
               <div><small>Ingresos</small><b class="pos">4.250 €</b></div>
               <div><small>Gastos</small><b class="neg">1.181 €</b></div>
               <div class="hl"><small>Balance</small><b>3.070 €</b></div>
+              <div><small>Mayor gasto</small><b class="cat">IBI</b></div>
             </div>
             <div class="pdf-charts">
               <svg viewBox="0 0 42 42" class="donut"><circle r="15.9" cx="21" cy="21" fill="none" stroke="#e5e7eb" stroke-width="7"/><circle r="15.9" cx="21" cy="21" fill="none" stroke="#10b981" stroke-width="7" stroke-dasharray="44 56" stroke-dashoffset="25"/><circle r="15.9" cx="21" cy="21" fill="none" stroke="#f59e0b" stroke-width="7" stroke-dasharray="26 74" stroke-dashoffset="81"/><circle r="15.9" cx="21" cy="21" fill="none" stroke="#3b82f6" stroke-width="7" stroke-dasharray="18 82" stroke-dashoffset="55"/></svg>
               <div class="bars"><i style="--h:92%" class="b-in"></i><i style="--h:30%" class="b-out"></i></div>
             </div>
-            <div class="pdf-rows"><i></i><i></i><i></i><i></i><i></i><i></i><i class="tot"></i></div>
+            <div class="pdf-rows"><i></i><i></i><i></i><i></i><i class="tot"></i></div>
           </div>
         </div>
       </div>
@@ -343,12 +347,25 @@
         <div class="feature-copy reveal">
           <p class="kicker">Sin cobertura</p>
           <h2>Tus fincas también cuando no tienes cobertura</h2>
-          <ul class="mini">
-            <li><span class="ms" aria-hidden="true">check</span>Tus fincas y todo lo que guardas, disponibles sin red</li>
-            <li><span class="ms" aria-hidden="true">sync</span>Con cuenta, se sincroniza al volver la cobertura</li>
-            <li><span class="ms" aria-hidden="true">download</span>Mapa de satélite de cada finca, descargable <span class="tag-premium">Premium</span></li>
-          </ul>
-          <p class="aside">Dar de alta una finca nueva, el tiempo y la capa Catastro necesitan conexión.</p>
+          <div class="off-cols">
+            <div>
+              <p class="off-h ok"><span class="ms" aria-hidden="true">check_circle</span>Sin conexión</p>
+              <ul>
+                <li>Tus fincas, sus datos y su contorno</li>
+                <li>Puntos, fotos, movimientos y cultivos</li>
+                <li>Apuntar cambios: se sincronizan al volver la cobertura (con cuenta)</li>
+                <li>El mapa de satélite de las fincas descargadas <span class="tag-premium">Premium</span></li>
+              </ul>
+            </div>
+            <div>
+              <p class="off-h need"><span class="ms" aria-hidden="true">wifi</span>Necesita conexión</p>
+              <ul>
+                <li>Dar de alta una finca nueva</li>
+                <li>La capa Catastro y el mapa del IGN</li>
+                <li>El tiempo y el escáner de tickets</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="feature-visual reveal" aria-hidden="true">
           <div class="offline-card">
@@ -377,7 +394,7 @@
           <div class="pro-hero-ic"><span class="ms" aria-hidden="true">map</span></div>
           <div>
             <p class="pro-new"><span class="ms crown" aria-hidden="true">workspace_premium</span>NUEVO EN PREMIUM</p>
-            <h3>Catastro directamente desde el mapa</h3>
+            <h3>Añade fincas desde el mapa</h3>
             <p>Selecciona una parcela y añádela a tus fincas en un solo toque.</p>
           </div>
         </div>
@@ -450,6 +467,7 @@
         <div class="download-card reveal">
           <img src="assets/logo@2x.png" width="70" height="90" alt="">
           <h2>Empieza a gestionar tus propiedades de otra manera.</h2>
+          <p class="lead">Catastro, mapa, gastos, fotos y documentos. Todo en un solo lugar.</p>
           <a class="btn btn-primary btn-lg" data-play data-play-badge href="#descargar">
             <span class="ms" aria-hidden="true">download</span>
             <span data-play-label data-ready-label="Descargar Leira en Google Play">Próximamente en Google Play</span>
