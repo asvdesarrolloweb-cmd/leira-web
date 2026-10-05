@@ -53,8 +53,11 @@ h1, h2, h3 { line-height: 1.12; margin: 0; letter-spacing: -0.02em; }
 p { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 
-.wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
-.wrap.narrow { width: min(760px, 100% - 32px); }
+.wrap { --gutter: 16px; width: min(1160px, 100% - 2 * var(--gutter)); margin-inline: auto; }
+.wrap.narrow { width: min(760px, 100% - 2 * var(--gutter)); }
+@media (min-width: 390px) { .wrap { --gutter: 20px; } }
+@media (min-width: 768px) and (max-width: 959px) { .wrap { --gutter: 32px; } }
+@media (min-width: 960px) { .wrap { --gutter: 16px; } }
 
 .skip {
   position: absolute; left: 16px; top: -60px; z-index: 100;
@@ -81,7 +84,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* ---------------------------------------------------------------- botones */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 44px; padding: 0 20px; border-radius: 999px;
+  min-height: 44px; padding: 0 20px; border-radius: 999px; text-align: center;
   font: 700 15px/1 var(--font); text-decoration: none; cursor: pointer;
   border: 1.5px solid transparent;
   transition: transform .15s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
@@ -110,6 +113,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .nav.scrolled { border-bottom-color: var(--border); }
 .nav-inner { height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 19px; }
+.nav .brand { min-height: 44px; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a:not(.btn) { color: var(--dim); text-decoration: none; font-size: 15px; font-weight: 500; transition: color .2s; }
 .nav-links a:not(.btn):hover { color: var(--text); }
@@ -130,9 +134,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     padding: 8px 16px 20px; background: var(--bg); border-bottom: 1px solid var(--border);
     display: none;
   }
-  .nav-links.open { display: flex; }
-  .nav-links a:not(.btn) { padding: 14px 4px; border-bottom: 1px solid var(--border); font-size: 16px; }
+  .nav-links.open {
+    display: flex;
+    max-height: calc(100dvh - var(--nav-h)); overflow-y: auto; overscroll-behavior: contain;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, .55);
+  }
+  .nav-links a:not(.btn) { padding: 14px 4px; min-height: 52px; display: flex; align-items: center; border-bottom: 1px solid var(--border); font-size: 16px; }
   .nav-links .btn { margin-top: 16px; min-height: 48px; }
+  /* Menú abierto: «Descargar» pasa al final de la lista (botón ancho) y sale de la barra. */
+  .nav-links.open .nav-cta-desktop { display: inline-flex; font-size: 15px; }
+  .nav.menu-open .nav-cta-mobile { visibility: hidden; }
+  .nav-cta-mobile { min-height: 44px; }
 }
 
 /* ---------------------------------------------------------------- tipografía de sección */
@@ -143,9 +155,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .lead { color: var(--dim); font-size: clamp(16px, 1.6vw, 18px); max-width: 56ch; }
 .accent { color: var(--accent); }
 
-.section { padding: clamp(64px, 9vw, 120px) 0; }
+.section { padding: clamp(48px, 9vw, 120px) 0; }
 .section-alt { background: var(--bg-alt); border-block: 1px solid var(--border); }
-.section-head { text-align: center; display: grid; justify-items: center; gap: 14px; margin-bottom: clamp(36px, 5vw, 56px); }
+.section-head { text-align: center; display: grid; justify-items: center; gap: 14px; margin-bottom: clamp(28px, 5vw, 56px); }
 .section-head h2, .feature-copy h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; }
 
 /* ---------------------------------------------------------------- hero */
@@ -166,7 +178,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* ---------------------------------------------------------------- teléfono */
 .phone {
-  width: min(300px, 78vw); aspect-ratio: 9 / 18.6;
+  width: min(300px, 84vw); aspect-ratio: 9 / 18.6;
   border-radius: 42px; padding: 10px;
   background: linear-gradient(160deg, #1d2b27, #0b1411);
   border: 1px solid #23342f;
@@ -321,7 +333,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @keyframes float { 50% { transform: translateY(-8px); } }
 
 /* ---------------------------------------------------------------- posicionamiento */
-.section-tight { padding: clamp(48px, 7vw, 88px) 0; }
+.section-tight { padding: clamp(40px, 7vw, 88px) 0; }
 .claim { font-size: clamp(28px, 3.9vw, 50px) !important; max-width: none; text-wrap: balance; }
 .flow { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; counter-reset: f; }
 .flow li {
@@ -406,7 +418,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .aside { color: var(--dim); font-size: 14.5px; border-left: 2px solid var(--border-strong); padding-left: 14px; }
 .mid-cta {
-  margin-top: clamp(40px, 6vw, 64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  margin-top: clamp(32px, 6vw, 64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
   gap: 14px 22px; text-align: center;
 }
 .mid-cta p { font-size: clamp(18px, 2vw, 22px); font-weight: 700; }
@@ -608,6 +620,116 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .footer-h { color: var(--text); font-weight: 700; margin-bottom: 4px; }
 .footer-play { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); text-decoration: none; font-weight: 650; width: fit-content; }
 .footer-bottom { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--faint); font-size: 13px; }
+
+/* ================================================================ responsive: móvil y tablet
+   Todo lo de aquí vive en media queries que terminan antes de 960 px (donde arranca la composición
+   de escritorio de dos columnas), así que el escritorio no cambia. Los cortes están donde el
+   contenido lo pide: < 600 px una columna estrecha (móvil), 600-959 px tablet. */
+
+/* ---- Móvil (< 600 px) */
+@media (max-width: 599px) {
+  /* Hero: título, texto, CTA principal, CTA secundario y la app, en vertical y a todo el ancho. */
+  .hero { padding-top: 20px; }
+  .hero-grid { gap: 32px; }
+  .hero-copy { gap: 18px; }
+  .hero h1 { font-size: clamp(32px, calc(11vw - 4px), 46px); }
+  .cta-row { flex-direction: column; align-self: stretch; width: 100%; gap: 10px; }
+  .cta-row .btn { width: 100%; min-height: 52px; }
+
+  /* Flujo «encuentra → selecciona → añade → gestiona»: lista vertical de ancho completo. */
+  .flow { flex-direction: column; align-items: stretch; max-width: 440px; margin-inline: auto; gap: 8px; }
+  .flow li { border-radius: var(--radius); }
+  .flow-sub { margin-top: 18px; }
+
+  /* Tarjetas de «Para quién» y Premium: icono a la izquierda, texto a la derecha (menos alto). */
+  .who li, .pro-grid li {
+    grid-template-columns: auto 1fr; column-gap: 14px; row-gap: 2px; align-items: start; padding: 16px;
+  }
+  .who-ic, .pro-grid .ms { grid-row: span 2; margin-bottom: 0; }
+  .pro-grid { gap: 10px; }
+
+  /* Premium: la tarjeta principal a todo el ancho, con el icono más contenido. */
+  .pro-hero { align-items: flex-start; gap: 14px; padding: 18px; }
+  .pro-hero-ic { width: 48px; height: 48px; }
+  .pro-hero-ic .ms { font-size: 26px; }
+
+  /* Secciones con visual: menos separación entre texto y mockup. */
+  .feature-grid { gap: 36px; }
+  .feature-copy { gap: 16px; }
+
+  /* CTA intermedio y descarga: botones anchos, cómodos de pulsar. */
+  .mid-cta { flex-direction: column; gap: 14px; }
+  .mid-cta .btn, .download-card .btn:not(.btn-badge) { width: 100%; min-height: 52px; padding-inline: 16px; }
+  .download-card { padding: 36px 16px; border-radius: var(--radius-l); gap: 16px; }
+  .download-card h2 { max-width: none; }
+
+  /* Mapa: controles más grandes y un mockup más alto, para que se lea bien. */
+  .layer-switch { width: 100%; }
+  .layer-switch button { flex: 1; justify-content: center; }
+  .cad-btn { width: 100%; justify-content: center; }
+  .map-controls { width: 100%; }
+  .map-card { aspect-ratio: 1 / 1.05; }
+
+  .doc-stack { gap: 12px; }
+  .card { padding: 14px 16px; }
+
+  /* Informe PDF: sin giro ni sombra desplazada (pegaba al borde) y KPI en 2 x 2. */
+  .pdf { transform: none; box-shadow: var(--shadow); }
+  .pdf-kpis { grid-template-columns: repeat(2, 1fr); }
+  .pdf-head { gap: 12px; }
+
+  /* FAQ: preguntas a todo el ancho con un área de toque cómoda. */
+  .faq summary { padding: 16px 18px; min-height: 56px; font-size: 16px; }
+  .faq details p { padding: 0 18px 18px; }
+
+  /* Footer: enlaces con área táctil de 44 px. */
+  .footer { padding-top: 40px; }
+  .footer-grid { gap: 24px; }
+}
+
+/* ---- Pantallas táctiles (móvil y tablet): áreas de toque de 44 px en el selector del mapa y el footer. */
+@media (max-width: 959px) {
+  .layer-switch button { min-height: 44px; }
+  /* Campo: las dos tarjetas pequeñas, una debajo de otra (en dos columnas se partían las palabras). */
+  .doc-row { grid-template-columns: 1fr; gap: 12px; }
+  .footer nav { gap: 0; }
+  .footer nav a, .footer-play, .footer .brand { min-height: 44px; display: inline-flex; align-items: center; }
+  .footer-h { margin-bottom: 2px; }
+}
+
+/* ---- Móviles muy estrechos (< 360 px): que «Próximamente en Google Play» quepa en una línea. */
+@media (max-width: 359px) {
+  .cta-row .btn, .mid-cta .btn, .download-card .btn:not(.btn-badge) { font-size: 15px; padding-inline: 10px; gap: 6px; }
+  .download-card { padding-inline: 10px; }
+}
+
+/* ---- Mapa en móvil y tablet estrecho: texto → controles → mapa → leyenda (debajo del mapa). */
+@media (max-width: 767px) {
+  #mapa .feature-copy { display: contents; }
+  #mapa .feature-grid { gap: 16px; }
+  #mapa .feature-visual { order: 1; margin-top: 4px; }
+  #mapa .legend { order: 2; justify-content: center; }
+}
+
+/* ---- Tablet (600-959 px) */
+@media (min-width: 600px) and (max-width: 959px) {
+  /* Hero centrado: con una sola columna, el texto alineado a la izquierda dejaba un hueco a la derecha. */
+  .hero-copy { justify-items: center; text-align: center; }
+  .hero .lead { margin-inline: auto; }
+  .cta-row, .hero-points { justify-content: center; }
+  .hero .phone { width: 320px; }
+
+  /* «Para quién»: 2 x 2 en vez de 3 + 1. */
+  .who { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- Tablet ancha (768-959 px): secciones con visual a dos columnas, como en escritorio. */
+@media (min-width: 768px) and (max-width: 959px) {
+  .feature-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .feature-grid.reverse .feature-copy { order: 2; }
+  .map-card { aspect-ratio: 1 / 1.1; }
+  .off-cols { grid-template-columns: 1fr; }
+}
 
 /* ---------------------------------------------------------------- aparición suave */
 @media (prefers-reduced-motion: no-preference) {

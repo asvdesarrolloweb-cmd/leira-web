@@ -68,18 +68,31 @@ function setupNav() {
   const links = document.getElementById('nav-links');
   if (!nav || !toggle || !links) return;
 
+  const isOpen = () => links.classList.contains('open');
   const setOpen = (open) => {
     links.classList.toggle('open', open);
+    nav.classList.toggle('menu-open', open);
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
     toggle.querySelector('.ms').textContent = open ? 'close' : 'menu';
   };
-  toggle.addEventListener('click', () => setOpen(!links.classList.contains('open')));
+  toggle.addEventListener('click', () => setOpen(!isOpen()));
   links.addEventListener('click', (e) => {
     if (e.target.closest('a')) setOpen(false);
   });
+  // Tocar fuera de la barra cierra el menú.
+  document.addEventListener('click', (e) => {
+    if (isOpen() && !nav.contains(e.target)) setOpen(false);
+  });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setOpen(false);
+    if (e.key === 'Escape' && isOpen()) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  // Al pasar a escritorio con el menú abierto, se cierra (la barra vuelve a ser horizontal).
+  window.matchMedia('(min-width: 861px)').addEventListener('change', (e) => {
+    if (e.matches) setOpen(false);
   });
 
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
