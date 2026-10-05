@@ -1,10 +1,11 @@
 /* Leira — web oficial. Sin dependencias. */
 
 /**
- * Enlace de Leira en Google Play. Vacío hasta que la app esté publicada: mientras tanto, los
- * botones de descarga dicen «Próximamente en Google Play» y no llevan a ningún sitio. En cuanto
- * se pegue aquí la URL real (p. ej. https://play.google.com/store/apps/details?id=com.leiraapp.mobile),
- * todos pasan solos a «Descargar en Google Play» y abren la ficha de la tienda.
+ * Enlace de Leira en Google Play — el ÚNICO sitio donde va. Vacío hasta que la app esté publicada:
+ * mientras tanto, todos los botones de descarga dicen «Próximamente en Google Play». En cuanto se
+ * pegue aquí la URL real (p. ej. https://play.google.com/store/apps/details?id=com.leiraapp.mobile),
+ * todos pasan solos a «Descargar en Google Play», abren la tienda y el botón final muestra el
+ * distintivo oficial de Google Play.
  */
 const GOOGLE_PLAY_URL = '';
 
@@ -23,6 +24,16 @@ function setupPlayButtons() {
       btn.rel = 'noopener';
       btn.removeAttribute('aria-disabled');
       if (label) label.textContent = label.dataset.readyLabel || READY_LABEL;
+      // Distintivo oficial (assets/google-play-badge.png) en lugar del botón propio.
+      if (btn.hasAttribute('data-play-badge')) {
+        const img = document.createElement('img');
+        img.src = 'assets/google-play-badge.png';
+        img.width = 646;
+        img.height = 192;
+        img.alt = 'Disponible en Google Play';
+        btn.replaceChildren(img);
+        btn.classList.add('btn-badge');
+      }
     } else {
       if (label) label.textContent = SOON_LABEL;
       // Sin enlace todavía: el del hero lleva a la sección de descarga; el de esa sección, a nada.
@@ -33,6 +44,8 @@ function setupPlayButtons() {
     }
   });
   document.querySelectorAll('[data-play-text]').forEach((a) => {
+    const label = a.querySelector('[data-play-label]');
+    if (label) label.textContent = ready ? READY_LABEL : SOON_LABEL;
     if (ready) {
       a.href = GOOGLE_PLAY_URL;
       a.target = '_blank';
@@ -95,11 +108,21 @@ function setupReveal() {
   items.forEach((el) => io.observe(el));
 }
 
-/** Selector Satélite | Mapa de la sección del mapa. */
+/** Controles de la sección del mapa: selector Mapa | Satélite e interruptor Catastro. */
 function setupLayerSwitch() {
   const target = document.querySelector('[data-layer-target]');
   const buttons = document.querySelectorAll('[data-layer-btn]');
   if (!target || !buttons.length) return;
+  const cadBtn = document.querySelector('[data-cad-btn]');
+  if (cadBtn) {
+    cadBtn.addEventListener('click', () => {
+      const on = target.dataset.cad !== 'on';
+      target.dataset.cad = on ? 'on' : 'off';
+      cadBtn.setAttribute('aria-pressed', String(on));
+      cadBtn.querySelector('.switch')?.classList.toggle('on', on);
+      target.querySelector('[data-cad-switch]')?.classList.toggle('on', on);
+    });
+  }
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const layer = btn.dataset.layerBtn;
@@ -124,9 +147,9 @@ function setupCatastroDemo() {
     map.dataset.demoStep = String(n);
     steps.forEach((li) => li.classList.toggle('active', li.dataset.step === String(n)));
   };
-  // Sin animaciones: estado final (parcela seleccionada con su tarjeta) y todos los pasos visibles.
+  // Sin animaciones: paso 3 fijo (parcela seleccionada con «Añadir a mis fincas» a la vista).
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
-    show(4);
+    show(3);
     return;
   }
 
@@ -140,7 +163,7 @@ function setupCatastroDemo() {
     ([entry]) => {
       if (entry.isIntersecting && !timer) {
         tick();
-        timer = setInterval(tick, 2200);
+        timer = setInterval(tick, 2400);
       } else if (!entry.isIntersecting && timer) {
         clearInterval(timer);
         timer = null;

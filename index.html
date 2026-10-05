@@ -16,7 +16,7 @@
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="Leira">
   <meta property="og:title" content="Leira — Gestiona tus fincas y propiedades">
-  <meta property="og:description" content="Localiza tus propiedades, consulta el Catastro, controla gastos y documentos y ten toda la información de tus fincas en un solo lugar.">
+  <meta property="og:description" content="Tus fincas. Todo bajo control. Catastro, ubicación, gastos, fotos y documentación en una sola aplicación.">
   <meta property="og:image" content="https://asvdesarrolloweb-cmd.github.io/leira-web/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -30,7 +30,7 @@
   <!-- Iconos: los mismos Material Icons que usa la app, solo los que aparecen en la página. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,400..600,0..1,0&icon_names=account_balance_wallet,add,arrow_downward,arrow_forward,bar_chart,block,check,close,cloud_done,cloud_off,crop_free,description,directions,document_scanner,download,eco,expand_more,grass,handyman,home_work,landscape,layers,list,location_on,map,menu,my_location,partly_cloudy_day,photo_camera,picture_as_pdf,receipt_long,satellite_alt,share,sync,terrain,touch_app,trending_down,trending_up,warning,water_drop,wifi_off,workspace_premium&display=block">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,400..600,0..1,0&icon_names=account_balance_wallet,add,apartment,arrow_downward,bar_chart,block,check,check_circle,close,cloud_done,cloud_off,crop_free,description,directions,document_scanner,download,expand_more,folder_open,forest,grass,handyman,list,location_on,map,menu,my_location,payments,photo_camera,picture_as_pdf,receipt_long,satellite_alt,sync,terrain,travel_explore,trending_up,water_drop,wifi_off,workspace_premium&display=block">
 
   <link rel="stylesheet" href="styles.css">
   <script src="main.js" defer></script>
@@ -50,11 +50,14 @@
         <a href="#catastro">Catastro</a>
         <a href="#premium">Premium</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn-sm btn-primary" href="#descargar">Descargar</a>
+        <a class="btn btn-sm btn-primary nav-cta-desktop" href="#descargar">Descargar</a>
       </nav>
-      <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú" data-nav-toggle>
-        <span class="ms" aria-hidden="true">menu</span>
-      </button>
+      <div class="nav-right">
+        <a class="btn btn-sm btn-primary nav-cta-mobile" href="#descargar">Descargar</a>
+        <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú" data-nav-toggle>
+          <span class="ms" aria-hidden="true">menu</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -65,8 +68,8 @@
       <div class="wrap hero-grid">
         <div class="hero-copy reveal">
           <p class="eyebrow"><img src="assets/logo.png" width="14" height="18" alt=""> Leira para Android</p>
-          <h1>Gestiona tus fincas.<br><span class="accent">Sin complicaciones.</span></h1>
-          <p class="lead">Localiza tus propiedades, consulta el Catastro, controla gastos y documentos y ten toda la información de tus fincas en un solo lugar.</p>
+          <h1>Tus fincas.<br><span class="accent">Todo bajo control.</span></h1>
+          <p class="lead">Catastro, ubicación, gastos, fotos y documentación. Todo en una sola aplicación.</p>
           <div class="cta-row">
             <a class="btn btn-primary btn-lg" data-play href="#descargar">
               <span class="ms" aria-hidden="true">download</span>
@@ -76,19 +79,19 @@
               Descubrir Leira <span class="ms" aria-hidden="true">arrow_downward</span>
             </a>
           </div>
-          <ul class="hero-points" aria-label="Lo esencial">
-            <li><span class="ms" aria-hidden="true">check</span>Fincas, viviendas y terrenos</li>
-            <li><span class="ms" aria-hidden="true">check</span>Datos oficiales del Catastro</li>
-            <li><span class="ms" aria-hidden="true">check</span>Funciona sin cobertura</li>
+          <ul class="hero-points" aria-label="Para quién">
+            <li><span class="ms" aria-hidden="true">forest</span>Fincas y terrenos</li>
+            <li><span class="ms" aria-hidden="true">apartment</span>Viviendas y alquileres</li>
+            <li><span class="ms" aria-hidden="true">wifi_off</span>También sin cobertura</li>
           </ul>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Vista de la app: mapa con una finca guardada en verde y una parcela del Catastro seleccionada" role="img">
+        <div class="hero-visual reveal" role="img" aria-label="Pantalla Mapa de Leira: fincas guardadas en verde, parcelas del Catastro en naranja y la tarjeta de una parcela con el botón Añadir a mis fincas">
           <div class="phone tilt">
             <div class="screen">
               <div class="app-bar"><span>Mapa</span><span class="app-avatar"><span class="ms" aria-hidden="true">grass</span></span></div>
               <div class="map" data-map data-layer="sat" data-cad="on">
-                <div class="m-pill m-layers"><span class="on">Satélite</span><span>Mapa</span></div>
+                <div class="m-pill m-layers"><span>Mapa</span><span class="on">Satélite</span></div>
                 <div class="m-pill m-cad-toggle"><span class="ms crown" aria-hidden="true">workspace_premium</span>Catastro<i class="switch on"></i></div>
                 <div class="m-callout">
                   <strong>Parcela catastral</strong>
@@ -99,35 +102,40 @@
               <div class="tab-bar"><span class="on"><span class="ms" aria-hidden="true">map</span>Mapa</span><span><span class="ms" aria-hidden="true">list</span>Mis fincas</span></div>
             </div>
           </div>
-          <div class="float-card fc-balance float-a" aria-hidden="true">
-            <small>Balance</small>
-            <strong class="pos">+3.069,50 €</strong>
-            <span class="fc-row"><i class="dot up"></i>Ingresos 4.250,00 €</span>
-            <span class="fc-row"><i class="dot down"></i>Gastos 1.180,50 €</span>
-          </div>
-          <div class="float-card fc-weather float-b" aria-hidden="true">
-            <span class="ms" aria-hidden="true">partly_cloudy_day</span>
-            <div><strong>22°</strong><small>Meteorología en la finca</small></div>
-          </div>
+          <span class="chip-float chip-a float-a" aria-hidden="true"><i class="chip-dot orange"></i>Parcela catastral</span>
+          <span class="chip-float chip-b float-b" aria-hidden="true"><i class="chip-dot green"></i>Mis fincas</span>
+          <span class="chip-float chip-c float-a" aria-hidden="true"><span class="ms">account_balance_wallet</span>Gastos e ingresos</span>
         </div>
       </div>
     </section>
 
-    <!-- ====================================================== TODO EN UN SOLO LUGAR -->
-    <section class="section" id="funcionalidades">
+    <!-- ====================================================== POSICIONAMIENTO -->
+    <section class="section section-tight" id="funcionalidades">
       <div class="wrap">
         <header class="section-head reveal">
-          <p class="kicker">Todo en un solo lugar</p>
-          <h2>Tus propiedades, organizadas.</h2>
-          <p class="lead">Leira reúne en una sola aplicación la información que necesitas para gestionar tus fincas y propiedades: dónde están, qué son, qué te cuestan y qué te dan.</p>
+          <h2 class="claim">Catastro te dice qué hay.<br><span class="accent">Leira te ayuda a gestionarlo.</span></h2>
+          <p class="lead">Consulta tus parcelas desde el mapa, guárdalas en tus fincas y gestiona toda su información desde un solo lugar.</p>
         </header>
-        <ul class="tiles">
-          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">location_on</span><h3>Ubicación</h3><p>Cada finca dibujada en el mapa con su contorno real, y «Cómo llegar» con un toque.</p></li>
-          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">home_work</span><h3>Propiedades</h3><p>Fincas rústicas, terrenos, viviendas o locales: todas en tu lista, con búsqueda y orden.</p></li>
-          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">account_balance_wallet</span><h3>Gastos e ingresos</h3><p>Cada movimiento en su finca, con categoría, fecha y el balance siempre al día.</p></li>
-          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">photo_camera</span><h3>Fotos</h3><p>Fotos con su ubicación y una nota, para tener el estado de cada terreno a mano.</p></li>
-          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">picture_as_pdf</span><h3>Informes PDF</h3><p>Ficha técnica de la finca e informes económicos listos para guardar o imprimir.</p></li>
-          <li class="tile reveal"><span class="tile-icon ms" aria-hidden="true">map</span><h3>Catastro</h3><p>Datos y geometría oficiales de la Dirección General del Catastro, sin buscarlos a mano.</p></li>
+        <ol class="trio">
+          <li class="reveal"><span class="trio-ic ms" aria-hidden="true">travel_explore</span><h3>Encuéntrala</h3><p>Consulta parcelas directamente desde el mapa.</p></li>
+          <li class="reveal"><span class="trio-ic ms" aria-hidden="true">folder_open</span><h3>Organízala</h3><p>Guarda información, fotos y documentación.</p></li>
+          <li class="reveal"><span class="trio-ic ms" aria-hidden="true">payments</span><h3>Gestiónala</h3><p>Controla gastos, ingresos y genera informes.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====================================================== PARA QUIÉN -->
+    <section class="section section-alt" id="para-quien">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker">Para quién</p>
+          <h2>Una sola app para tus propiedades</h2>
+        </header>
+        <ul class="who">
+          <li class="reveal"><span class="who-ic ms" aria-hidden="true">apartment</span><h3>Viviendas y alquileres</h3><p>Gastos, ingresos y documentación de cada vivienda o local.</p></li>
+          <li class="reveal"><span class="who-ic ms" aria-hidden="true">forest</span><h3>Fincas y terrenos</h3><p>Localiza tus parcelas y ten su información organizada.</p></li>
+          <li class="reveal"><span class="who-ic ms" aria-hidden="true">location_on</span><h3>Varias propiedades</h3><p>Todas en el mismo mapa y la misma lista.</p></li>
+          <li class="reveal"><span class="who-ic ms" aria-hidden="true">description</span><h3>Información y documentos</h3><p>Fotos, datos e informes asociados a cada propiedad.</p></li>
         </ul>
       </div>
     </section>
@@ -137,36 +145,41 @@
       <div class="wrap feature-grid">
         <div class="feature-copy reveal">
           <p class="kicker">Catastro</p>
-          <h2>Encuentra tus parcelas directamente en el mapa</h2>
-          <p class="lead">Explora las parcelas catastrales directamente desde el mapa y añade una finca a Leira en un solo toque.</p>
+          <h2>Encuentra una parcela.<br>Guárdala en segundos.</h2>
           <ol class="steps" data-steps>
-            <li data-step="1"><span class="step-n">1</span><div><strong>Abre el mapa</strong><p>Tus fincas guardadas aparecen en verde.</p></div></li>
-            <li data-step="2"><span class="step-n">2</span><div><strong>Activa la capa Catastro</strong><p>Las parcelas oficiales se dibujan en naranja sobre el mapa.</p></div></li>
-            <li data-step="3"><span class="step-n">3</span><div><strong>Toca una parcela</strong><p>Leira la identifica y te enseña su superficie y municipio.</p></div></li>
-            <li data-step="4"><span class="step-n">4</span><div><strong>«Añadir a mis fincas»</strong><p>Y ya es tuya en Leira. Si la parcela tiene varios inmuebles, eliges cuál.</p></div></li>
+            <li data-step="1"><span class="step-n">1</span><div><strong>Mapa</strong><p>Activa la capa Catastro: las parcelas aparecen en naranja.</p></div></li>
+            <li data-step="2"><span class="step-n">2</span><div><strong>Selecciona la parcela</strong><p>Tócala y Leira te enseña su superficie.</p></div></li>
+            <li data-step="3"><span class="step-n">3</span><div><strong>«Añadir a mis fincas»</strong><p>Si tiene varios inmuebles, eliges cuál.</p></div></li>
+            <li data-step="4"><span class="step-n"><span class="ms">check</span></span><div><strong>Finca guardada</strong><p>Ya aparece en verde, lista para gestionarla.</p></div></li>
           </ol>
-          <p class="premium-note"><span class="ms crown" aria-hidden="true">workspace_premium</span>La capa Catastro en el mapa está disponible con Premium.</p>
-          <p class="aside">¿Ya tienes la referencia catastral? Escríbela y Leira trae la dirección, el uso, la superficie y el contorno de la parcela — en el plan gratuito.</p>
+          <p class="premium-note"><span class="ms crown" aria-hidden="true">workspace_premium</span>Disponible con Premium</p>
+          <p class="aside">¿Tienes la referencia catastral? Escríbela y Leira trae la dirección, el uso, la superficie y el contorno — gratis.</p>
         </div>
-        <div class="feature-visual reveal" role="img" aria-label="Ejemplo: mapa con las parcelas del Catastro en naranja, una finca guardada en verde y una parcela seleccionada con el botón Añadir a mis fincas">
+        <div class="feature-visual reveal" role="img" aria-label="Animación: sobre el mapa del IGN se activa la capa Catastro, se toca una parcela, se pulsa Añadir a mis fincas y la parcela queda guardada en verde">
           <div class="phone">
             <div class="screen">
               <div class="app-bar"><span>Mapa</span><span class="app-avatar"><span class="ms" aria-hidden="true">grass</span></span></div>
-              <div class="map" data-map data-layer="sat" data-cad="on" data-demo-step="4">
+              <div class="map" data-map data-layer="ign" data-cad="on" data-demo-step="3">
+                <div class="m-pill m-layers"><span class="on">Mapa</span><span>Satélite</span></div>
                 <div class="m-pill m-cad-toggle"><span class="ms crown" aria-hidden="true">workspace_premium</span>Catastro<i class="switch on"></i></div>
                 <div class="m-callout">
                   <strong>Parcela catastral</strong>
                   <small>Superficie: 37.102 m²</small>
                   <span class="m-add"><span class="ms" aria-hidden="true">add</span>Añadir a mis fincas</span>
                 </div>
+                <div class="m-toast"><span class="ms" aria-hidden="true">check_circle</span>Finca guardada</div>
               </div>
               <div class="tab-bar"><span class="on"><span class="ms" aria-hidden="true">map</span>Mapa</span><span><span class="ms" aria-hidden="true">list</span>Mis fincas</span></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="wrap">
-        <p class="compare reveal"><strong>Una app de Catastro te enseña una parcela.</strong> Leira te ayuda a gestionarla: su mapa, sus gastos, sus fotos y sus informes, en el mismo sitio.</p>
+      <div class="wrap mid-cta reveal">
+        <p>Toda tu propiedad, en el bolsillo.</p>
+        <a class="btn btn-primary" data-play href="#descargar">
+          <span class="ms" aria-hidden="true">download</span>
+          <span data-play-label>Próximamente en Google Play</span>
+        </a>
       </div>
     </section>
 
@@ -175,23 +188,28 @@
       <div class="wrap feature-grid reverse">
         <div class="feature-copy reveal">
           <p class="kicker">Mapa</p>
-          <h2>Tus fincas, siempre en el mapa</h2>
-          <p class="lead">Visualiza tus propiedades y descubre nuevas parcelas directamente desde el mapa.</p>
-          <div class="layer-switch" role="group" aria-label="Probar el tipo de mapa">
-            <button type="button" class="on" data-layer-btn="sat" aria-pressed="true"><span class="ms" aria-hidden="true">satellite_alt</span>Satélite</button>
-            <button type="button" data-layer-btn="ign" aria-pressed="false"><span class="ms" aria-hidden="true">map</span>Mapa</button>
+          <h2>Tus propiedades, sobre el mapa</h2>
+          <p class="lead">Visualiza tus fincas, explora parcelas catastrales y cambia entre mapa y satélite para encontrar lo que buscas.</p>
+          <div class="map-controls" role="group" aria-label="Pruébalo en el mapa">
+            <div class="layer-switch">
+              <button type="button" data-layer-btn="ign" aria-pressed="false"><span class="ms" aria-hidden="true">map</span>Mapa</button>
+              <button type="button" class="on" data-layer-btn="sat" aria-pressed="true"><span class="ms" aria-hidden="true">satellite_alt</span>Satélite</button>
+            </div>
+            <button type="button" class="cad-btn" data-cad-btn aria-pressed="true">
+              <span class="ms crown" aria-hidden="true">workspace_premium</span>Catastro<i class="switch on"></i>
+            </button>
           </div>
-          <ul class="checks">
-            <li><span class="ms" aria-hidden="true">satellite_alt</span><div><strong>Satélite con carreteras y nombres</strong> para reconocer caminos, accesos y construcciones.</div></li>
-            <li><span class="ms" aria-hidden="true">layers</span><div><strong>Mapa del IGN</strong>, la cartografía oficial del Instituto Geográfico Nacional.</div></li>
-            <li><span class="ms" aria-hidden="true">my_location</span><div><strong>Tu ubicación</strong> y tus fincas en verde, con su contorno real.</div></li>
-            <li><span class="ms" aria-hidden="true">directions</span><div><strong>Cómo llegar</strong>: abre la ruta hasta la finca en tu app de mapas.</div></li>
+          <ul class="legend">
+            <li><i class="lg green"></i>Tus fincas</li>
+            <li><i class="lg orange"></i>Parcelas del Catastro</li>
+            <li><i class="lg blue"></i>Tu ubicación</li>
           </ul>
         </div>
-        <div class="feature-visual reveal" role="img" aria-label="Mapa de Leira con fincas en verde; se puede alternar entre satélite y mapa del IGN">
+        <div class="feature-visual reveal" role="img" aria-label="Mapa de Leira con fincas en verde, capa Catastro en naranja y tu ubicación; se puede alternar entre mapa del IGN y satélite">
           <div class="map-card">
-            <div class="map" data-map data-layer="sat" data-cad="off" data-layer-target>
-              <div class="m-pill m-layers"><span class="on" data-pill="sat">Satélite</span><span data-pill="ign">Mapa</span></div>
+            <div class="map" data-map data-layer="sat" data-cad="on" data-layer-target>
+              <div class="m-pill m-layers"><span data-pill="ign">Mapa</span><span class="on" data-pill="sat">Satélite</span></div>
+              <div class="m-pill m-cad-toggle"><span class="ms crown" aria-hidden="true">workspace_premium</span>Catastro<i class="switch on" data-cad-switch></i></div>
               <span class="m-fab-sm"><span class="ms" aria-hidden="true">my_location</span></span>
               <span class="m-fab"><span class="ms" aria-hidden="true">add</span></span>
             </div>
@@ -206,15 +224,13 @@
         <div class="feature-copy reveal">
           <p class="kicker">Economía</p>
           <h2>Controla lo que entra y lo que sale</h2>
-          <p class="lead">Apunta cada gasto e ingreso en su finca y ten siempre a la vista si te cuesta o te da dinero.</p>
-          <ul class="checks">
-            <li><span class="ms" aria-hidden="true">receipt_long</span><div><strong>Movimientos por finca</strong>: IBI, mantenimiento, suministros, alquiler o venta.</div></li>
-            <li><span class="ms" aria-hidden="true">bar_chart</span><div><strong>Balance al instante</strong>, filtrado por todo, este año o este mes.</div></li>
-            <li><span class="ms" aria-hidden="true">document_scanner</span><div><strong>Escanea un ticket</strong> y la IA rellena el importe, el concepto y la fecha <span class="tag-premium">Premium</span></div></li>
-            <li><span class="ms" aria-hidden="true">eco</span><div><strong>Cultivos y masas forestales</strong> con su inversión, su crecimiento y su venta.</div></li>
+          <ul class="mini">
+            <li><span class="ms" aria-hidden="true">receipt_long</span>Gastos e ingresos por finca</li>
+            <li><span class="ms" aria-hidden="true">bar_chart</span>Balance al instante, por año o mes</li>
+            <li><span class="ms" aria-hidden="true">document_scanner</span>Tickets escaneados con IA <span class="tag-premium">Premium</span></li>
           </ul>
         </div>
-        <div class="feature-visual reveal" role="img" aria-label="Pantalla Economía de una finca: balance, botones para añadir movimiento e informe PDF, y lista de movimientos de ejemplo">
+        <div class="feature-visual reveal" role="img" aria-label="Pantalla Economía de una finca: balance de ingresos y gastos, botones Añadir movimiento e Informe PDF y lista de movimientos de ejemplo">
           <div class="phone">
             <div class="screen">
               <div class="app-bar"><span>Finca «La Vega»</span></div>
@@ -247,12 +263,11 @@
         <div class="feature-copy reveal">
           <p class="kicker">Campo</p>
           <h2>Toda la información de tu propiedad, contigo</h2>
-          <p class="lead">Guarda la información importante de cada propiedad para no tener que buscarla cada vez que la necesitas.</p>
-          <ul class="checks">
-            <li><span class="ms" aria-hidden="true">photo_camera</span><div><strong>Fotos con ubicación</strong> desde la cámara o la galería, con su nota y su sitio en el mapa.</div></li>
-            <li><span class="ms" aria-hidden="true">location_on</span><div><strong>Puntos de interés</strong> dentro de la finca: pozos, herramientas, incidencias o cultivos.</div></li>
-            <li><span class="ms" aria-hidden="true">terrain</span><div><strong>Ficha técnica</strong>: referencia, superficie, uso, perímetro, altitud, pendiente y coordenadas.</div></li>
-            <li><span class="ms" aria-hidden="true">share</span><div><strong>Comparte la ubicación</strong> por WhatsApp con quien tenga que llegar.</div></li>
+          <p class="lead">Guarda la información importante de cada propiedad y tenla siempre organizada.</p>
+          <ul class="mini">
+            <li><span class="ms" aria-hidden="true">photo_camera</span>Fotos con su ubicación y una nota</li>
+            <li><span class="ms" aria-hidden="true">location_on</span>Puntos de interés: pozos, aperos, incidencias</li>
+            <li><span class="ms" aria-hidden="true">terrain</span>Ficha técnica: superficie, altitud, pendiente</li>
           </ul>
         </div>
         <div class="feature-visual reveal" aria-hidden="true">
@@ -295,11 +310,10 @@
         <div class="feature-copy reveal">
           <p class="kicker">Informes</p>
           <h2>Convierte tus datos en un informe</h2>
-          <p class="lead">Con un toque, Leira genera un PDF limpio para guardar, imprimir o enviar.</p>
-          <ul class="checks">
-            <li><span class="ms" aria-hidden="true">description</span><div><strong>Informe de la finca</strong>: datos del Catastro, plano de la parcela, perímetro, altitud y pendiente.</div></li>
-            <li><span class="ms" aria-hidden="true">bar_chart</span><div><strong>Informe económico</strong>: ingresos, gastos, balance, gráficos por categoría y todos los movimientos.</div></li>
-            <li><span class="ms" aria-hidden="true">list</span><div><strong>Informe de todas tus fincas</strong> para el periodo que elijas: este año, el anterior o un rango.</div></li>
+          <ul class="mini">
+            <li><span class="ms" aria-hidden="true">description</span>Informe de la finca: datos del Catastro, plano, perímetro, altitud y pendiente</li>
+            <li><span class="ms" aria-hidden="true">bar_chart</span>Informe económico: balance, gráficos y movimientos</li>
+            <li><span class="ms" aria-hidden="true">list</span>Informe de todas tus fincas por periodo</li>
           </ul>
         </div>
         <div class="feature-visual reveal" aria-hidden="true">
@@ -329,13 +343,12 @@
         <div class="feature-copy reveal">
           <p class="kicker">Sin cobertura</p>
           <h2>Tus fincas también cuando no tienes cobertura</h2>
-          <p class="lead">Lo que guardas en Leira vive en tu móvil. En mitad del campo puedes seguir consultando y apuntando.</p>
-          <ul class="checks">
-            <li><span class="ms" aria-hidden="true">check</span><div><strong>Tus fincas, sus datos y su contorno</strong>, puntos, fotos y movimientos, disponibles sin red.</div></li>
-            <li><span class="ms" aria-hidden="true">sync</span><div><strong>Con cuenta, todo se sincroniza</strong> al recuperar la cobertura, y lo tienes en otro móvil.</div></li>
-            <li><span class="ms" aria-hidden="true">download</span><div><strong>Descarga el mapa de cada finca</strong> para verlo en satélite sin conexión <span class="tag-premium">Premium</span></div></li>
-            <li class="muted"><span class="ms" aria-hidden="true">wifi_off</span><div>Dar de alta una finca nueva, el tiempo o la capa Catastro necesitan conexión.</div></li>
+          <ul class="mini">
+            <li><span class="ms" aria-hidden="true">check</span>Tus fincas y todo lo que guardas, disponibles sin red</li>
+            <li><span class="ms" aria-hidden="true">sync</span>Con cuenta, se sincroniza al volver la cobertura</li>
+            <li><span class="ms" aria-hidden="true">download</span>Mapa de satélite de cada finca, descargable <span class="tag-premium">Premium</span></li>
           </ul>
+          <p class="aside">Dar de alta una finca nueva, el tiempo y la capa Catastro necesitan conexión.</p>
         </div>
         <div class="feature-visual reveal" aria-hidden="true">
           <div class="offline-card">
@@ -357,15 +370,15 @@
       <div class="wrap">
         <header class="section-head reveal">
           <p class="badge-pro"><span class="ms" aria-hidden="true">workspace_premium</span>LEIRA PRO</p>
-          <h2>Lleva Leira un paso más allá</h2>
+          <h2>Descubre todo el potencial de Leira</h2>
           <p class="lead">Leira es gratis para gestionar tus fincas. Premium suma lo que más tiempo te ahorra.</p>
         </header>
         <div class="pro-hero reveal">
           <div class="pro-hero-ic"><span class="ms" aria-hidden="true">map</span></div>
           <div>
             <p class="pro-new"><span class="ms crown" aria-hidden="true">workspace_premium</span>NUEVO EN PREMIUM</p>
-            <h3>Añade fincas desde el mapa</h3>
-            <p>Toca cualquier parcela del Catastro y añádela a Mis fincas en un solo toque.</p>
+            <h3>Catastro directamente desde el mapa</h3>
+            <p>Selecciona una parcela y añádela a tus fincas en un solo toque.</p>
           </div>
         </div>
         <ul class="pro-grid">
@@ -389,35 +402,35 @@
         <div class="faq reveal">
           <details>
             <summary>¿Qué es Leira?<span class="ms" aria-hidden="true">expand_more</span></summary>
-            <p>Una app para registrar y gestionar tus fincas y propiedades a partir de su referencia catastral: las ves en el mapa con su contorno, consultas sus datos del Catastro, apuntas gastos e ingresos, guardas fotos y puntos de interés y generas informes en PDF.</p>
+            <p>Una app para gestionar tus fincas y propiedades a partir de su referencia catastral: las ves en el mapa, consultas sus datos del Catastro, apuntas gastos e ingresos, guardas fotos y puntos de interés y generas informes en PDF.</p>
           </details>
           <details>
             <summary>¿Para quién está pensada?<span class="ms" aria-hidden="true">expand_more</span></summary>
-            <p>Para cualquiera que tenga o gestione propiedades: fincas rústicas, terrenos, viviendas, locales o naves, tanto si es una como si son muchas.</p>
+            <p>Para cualquiera que tenga o gestione propiedades: fincas, terrenos, viviendas, locales o naves, sea una o sean muchas.</p>
           </details>
           <details>
             <summary>¿Puedo gestionar varias fincas?<span class="ms" aria-hidden="true">expand_more</span></summary>
-            <p>Sí. Todas aparecen en el mapa y en «Mis fincas», donde puedes buscarlas por nombre, municipio o cultivo y ordenarlas por fecha, superficie o nombre.</p>
+            <p>Sí. Todas aparecen en el mapa y en «Mis fincas», donde puedes buscarlas y ordenarlas.</p>
           </details>
           <details>
             <summary>¿Puedo consultar el Catastro?<span class="ms" aria-hidden="true">expand_more</span></summary>
-            <p>Sí. Escribe la referencia catastral y Leira obtiene de los servicios oficiales de la Dirección General del Catastro la dirección, el municipio, el uso, la superficie y el contorno de la parcela. Con Premium, además, puedes ver las parcelas directamente en el mapa. Navarra y el País Vasco tienen catastros propios y no están incluidos.</p>
+            <p>Sí. Con la referencia catastral, Leira obtiene de los servicios oficiales de la Dirección General del Catastro la dirección, el municipio, el uso, la superficie y el contorno de la parcela. Con Premium, además, ves las parcelas en el mapa. Navarra y el País Vasco tienen catastros propios y no están incluidos.</p>
           </details>
           <details>
             <summary>¿Puedo guardar parcelas en Mis fincas?<span class="ms" aria-hidden="true">expand_more</span></summary>
-            <p>Sí, desde su referencia catastral o, con Premium, tocando la parcela en el mapa y pulsando «Añadir a mis fincas». Si la parcela tiene varios inmuebles (por ejemplo, pisos), eliges cuál añadir.</p>
+            <p>Sí, desde su referencia catastral o, con Premium, tocando la parcela en el mapa. Si tiene varios inmuebles (por ejemplo, pisos), eliges cuál añadir.</p>
           </details>
           <details>
             <summary>¿Puedo controlar gastos e ingresos?<span class="ms" aria-hidden="true">expand_more</span></summary>
-            <p>Sí, por finca, con categorías y filtros por año o mes, y con informes en PDF. El plan gratuito permite 20 movimientos por finca; con Premium no hay límite y puedes escanear tickets con IA.</p>
+            <p>Sí, por finca, con categorías, filtros e informes en PDF. El plan gratuito permite 20 movimientos por finca; con Premium no hay límite y puedes escanear tickets con IA.</p>
           </details>
           <details>
             <summary>¿Funciona sin conexión?<span class="ms" aria-hidden="true">expand_more</span></summary>
-            <p>Tus fincas y todo lo que guardas en ellas siguen disponibles sin red, y los cambios se sincronizan cuando vuelve la cobertura si tienes cuenta. Dar de alta una finca nueva, el tiempo y la capa Catastro necesitan conexión. Con Premium puedes descargar el mapa de satélite de cada finca para verlo sin red.</p>
+            <p>Tus fincas y lo que guardas en ellas siguen disponibles sin red, y los cambios se sincronizan al volver la cobertura si tienes cuenta. Dar de alta una finca nueva, el tiempo y la capa Catastro necesitan conexión. Con Premium puedes descargar el mapa de satélite de cada finca.</p>
           </details>
           <details>
             <summary>¿Necesito crear una cuenta?<span class="ms" aria-hidden="true">expand_more</span></summary>
-            <p>No es obligatorio: puedes entrar como invitado y tus datos se guardan solo en ese móvil. Con una cuenta (email y contraseña) tus fincas se copian en la nube y las tienes en otro dispositivo.</p>
+            <p>No: puedes entrar como invitado y tus datos se guardan solo en ese móvil. Con una cuenta (email y contraseña) se copian en la nube y los tienes en otro dispositivo.</p>
           </details>
           <details>
             <summary>¿Qué incluye Premium?<span class="ms" aria-hidden="true">expand_more</span></summary>
@@ -425,7 +438,7 @@
           </details>
           <details>
             <summary>¿Dónde puedo descargar Leira?<span class="ms" aria-hidden="true">expand_more</span></summary>
-            <p>Leira llegará a Android a través de Google Play. Desde esta página tendrás el enlace en cuanto esté publicada.</p>
+            <p>Leira llegará a Android a través de Google Play. En esta página tendrás el enlace en cuanto esté publicada.</p>
           </details>
         </div>
       </div>
@@ -437,8 +450,7 @@
         <div class="download-card reveal">
           <img src="assets/logo@2x.png" width="70" height="90" alt="">
           <h2>Empieza a gestionar tus propiedades de otra manera.</h2>
-          <p class="lead">Tus fincas, sus datos y sus cuentas, en tu bolsillo.</p>
-          <a class="btn btn-primary btn-lg" data-play href="#descargar">
+          <a class="btn btn-primary btn-lg" data-play data-play-badge href="#descargar">
             <span class="ms" aria-hidden="true">download</span>
             <span data-play-label data-ready-label="Descargar Leira en Google Play">Próximamente en Google Play</span>
           </a>
@@ -452,7 +464,8 @@
     <div class="wrap footer-grid">
       <div class="footer-brand">
         <a class="brand" href="#top"><img src="assets/logo.png" srcset="assets/logo@2x.png 2x" width="25" height="32" alt="" loading="lazy"><span>Leira</span></a>
-        <p>Gestiona tus fincas y propiedades: mapa, Catastro, gastos e ingresos, fotos e informes en una sola app.</p>
+        <p>Tus fincas y propiedades, bajo control: mapa, Catastro, gastos, fotos e informes en una sola app.</p>
+        <a class="footer-play" data-play-text href="#descargar"><span class="ms" aria-hidden="true">download</span><span data-play-label>Próximamente en Google Play</span></a>
       </div>
       <nav aria-label="Secciones">
         <p class="footer-h">Leira</p>
@@ -460,7 +473,6 @@
         <a href="#catastro">Catastro</a>
         <a href="#premium">Premium</a>
         <a href="#faq">FAQ</a>
-        <a href="#descargar" data-play-text>Google Play</a>
       </nav>
       <nav aria-label="Legal">
         <p class="footer-h">Legal</p>

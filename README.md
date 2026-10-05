@@ -35,6 +35,16 @@ El parcelario de los mockups lo genera `tools/build-map-art.py` (Python, sin dep
 del `<template id="map-art">` de `index.html`; `main.js` lo clona en cada `[data-map]`. Para
 cambiarlo, editar el script y ejecutarlo: `python landing/tools/build-map-art.py`.
 
+## Iconos
+
+Solo se descargan los iconos que usa la página (`icon_names=` en la URL de Google Fonts). Tras
+añadir o quitar iconos, ejecutar `python landing/tools/update-icons.py`.
+
+## Distintivo de Google Play
+
+`assets/google-play-badge.png` es el distintivo oficial (en español) de Google Play. `main.js` solo
+lo muestra, en el bloque final de descarga, cuando `GOOGLE_PLAY_URL` tiene valor.
+
 ## Páginas legales
 
 Enlazadas desde el pie, publicadas en el repo `leira-privacidad` (GitHub Pages): privacidad,
