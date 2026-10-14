@@ -1,4 +1,4 @@
-# Leira — web oficial (landing)
+# Leyra — web oficial (landing)
 
 Página estática, sin dependencias ni paso de build: `index.html` + `styles.css` + `main.js` +
 `assets/`. Se puede servir tal cual desde cualquier hosting estático (GitHub Pages, Netlify,

@@ -1,7 +1,7 @@
-/* Leira — web oficial. Sin dependencias. */
+/* Leyra — web oficial. Sin dependencias. */
 
 /**
- * Enlace de Leira en Google Play — el ÚNICO sitio donde va. Vacío hasta que la app esté publicada:
+ * Enlace de Leyra en Google Play — el ÚNICO sitio donde va. Vacío hasta que la app esté publicada:
  * mientras tanto, todos los botones de descarga dicen «Próximamente en Google Play». En cuanto se
  * pegue aquí la URL real (p. ej. https://play.google.com/store/apps/details?id=com.leiraapp.mobile),
  * todos pasan solos a «Descargar en Google Play», abren la tienda y el botón final muestra el
